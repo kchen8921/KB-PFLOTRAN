@@ -57,11 +57,11 @@
          "id" : "input_deck_file",
          "default_values" : [ "batch" ],
          "advanced" : false,
-         "field_type" : "dynamic_dropdown",
+         "field_type" : "dropdown",
          "optional" : true,
-         "allow_multiple" : true,
+         "allow_multiple" : false,
          "text_options" : {
-            "valid_ws_types" : [ "batch","column"]
+            "valid_ws_types" : [ "batch","column","custom"]
          }
       },{
          "id" : "hdf_parameter_file",
