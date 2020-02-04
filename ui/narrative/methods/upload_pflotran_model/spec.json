@@ -55,13 +55,13 @@
     	   }
       },{
          "id" : "input_deck_file",
-         "default_values" : [ "" ],
+         "default_values" : [ "batch" ],
          "advanced" : false,
          "field_type" : "dynamic_dropdown",
-         "optional" : false,
-         "allow_multiple" : false,
+         "optional" : true,
+         "allow_multiple" : true,
          "text_options" : {
-            "valid_ws_types" : [ ]
+            "valid_ws_types" : [ "batch","column"]
          }
       },{
          "id" : "hdf_parameter_file",

@@ -24,7 +24,7 @@ class PFLOTRAN:
     ######################################### noqa
     VERSION = "0.0.1"
     GIT_URL = "https://github.com/kchen8921/KB-PFLOTRAN.git"
-    GIT_COMMIT_HASH = "c267df6a7f3fd10540ca031e525f296158df4c73"
+    GIT_COMMIT_HASH = "3edac5a898ec226635eea4d1c9ce181b5625c7cb"
 
     #BEGIN_CLASS_HEADER
     #END_CLASS_HEADER

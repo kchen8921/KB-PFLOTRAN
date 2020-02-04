@@ -23,8 +23,8 @@ class PFLOTRAN:
     # the latter method is running.
     ######################################### noqa
     VERSION = "0.0.1"
-    GIT_URL = "https://github.com/kchen8921/KB-PFLOTRAN.git"
-    GIT_COMMIT_HASH = "c267df6a7f3fd10540ca031e525f296158df4c73"
+    GIT_URL = ""
+    GIT_COMMIT_HASH = ""
 
     #BEGIN_CLASS_HEADER
     #END_CLASS_HEADER
@@ -43,7 +43,7 @@ class PFLOTRAN:
 
     def run_PFLOTRAN(self, ctx, params):
         """
-        Thi function enables users to run a pflotran simulation from an input plfotran model and fbamodel chemistry
+        This example function accepts any number of parameters and returns results in a KBaseReport
         :param params: instance of mapping from String to unspecified object
         :returns: instance of type "ReportResults" -> structure: parameter
            "report_name" of String, parameter "report_ref" of String
@@ -64,25 +64,6 @@ class PFLOTRAN:
         # At some point might do deeper type checking...
         if not isinstance(output, dict):
             raise ValueError('Method run_PFLOTRAN return value ' +
-                             'output is not type dict as required.')
-        # return the results
-        return [output]
-
-    def upload_plfotran_model(self, ctx, params):
-        """
-        This function enables users to upload files defining a pflotran model including input_deck and hdf5 parameter file
-        :param params: instance of mapping from String to unspecified object
-        :returns: instance of type "ReportResults" -> structure: parameter
-           "report_name" of String, parameter "report_ref" of String
-        """
-        # ctx is the context object
-        # return variables are: output
-        #BEGIN upload_plfotran_model
-        #END upload_plfotran_model
-
-        # At some point might do deeper type checking...
-        if not isinstance(output, dict):
-            raise ValueError('Method upload_plfotran_model return value ' +
                              'output is not type dict as required.')
         # return the results
         return [output]
