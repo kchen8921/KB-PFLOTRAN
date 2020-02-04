@@ -58,6 +58,29 @@
          "default_values" : [ "batch"],
          "advanced" : false,
          "field_type" : "dropdown",
+         "dropdown_options": {
+            "options": [
+                {
+                  "value": "batch",
+                  "display": "Default Reaction Type",
+                  "id": "default_reaction",
+                  "ui_name": "Default Reaction tyep"
+                },
+                {
+                  "value": "column",
+                  "display": "Column Reaction",
+                  "id": "column_reaction",
+                  "ui_name": "Column Reaction"
+                },
+                {
+                  "value": "custom",
+                  "display": "Custom Reaction",
+                  "id": "custom_reaction",
+                  "ui_name": "Custom Reaction"
+                }
+               ]
+            }
+         },
          "optional" : false,
          "allow_multiple" : false,
          "text_options" : {
