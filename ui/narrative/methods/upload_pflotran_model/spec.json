@@ -81,10 +81,7 @@
                ]
          },
          "optional" : false,
-         "allow_multiple" : false,
-         "text_options" : {
-            "valid_ws_types" : [ "batch","column","custom"]
-         }
+         "allow_multiple" : false
       },{
          "id" : "hdf_parameter_file",
          "default_values" : [ "" ],
