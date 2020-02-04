@@ -62,9 +62,9 @@
             "options": [
                 {
                   "value": "batch",
-                  "display": "Default Reaction Type",
+                  "display": "Batch Reaction",
                   "id": "default_reaction",
-                  "ui_name": "Default Reaction tyep"
+                  "ui_name": "Batch Reaction"
                 },
                 {
                   "value": "column",
