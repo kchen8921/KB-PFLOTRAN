@@ -79,7 +79,6 @@
                   "ui_name": "Custom Reaction"
                 }
                ]
-            }
          },
          "optional" : false,
          "allow_multiple" : false,
