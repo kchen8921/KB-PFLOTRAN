@@ -34,9 +34,8 @@ RUN  git clone https://bitbucket.org/pflotran/pflotran
 WORKDIR /bin/pflotran/src/pflotran
 RUN  make pflotran
 
-# Install netCDF
-
-# Install DART
+# Install h5py
+RUN pip install h5py
 
 # -----------------------------------------
 

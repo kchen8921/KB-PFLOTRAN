@@ -29,34 +29,6 @@
                "KBaseReactiveTransport.PflotranModel"
             ]
          }
-      },{
-         "id" : "FBAModel_id",
-         "default_values" : [
-            ""
-         ],
-         "advanced" : false,
-         "optional" : false,
-         "allow_multiple" : false,
-         "field_type" : "text",
-         "text_options" : {
-            "valid_ws_types" : [
-               "KBaseFBA.FBAModel"
-            ]
-         }
-      },{
-         "id" : "Media_id",
-         "default_values" : [
-            ""
-         ],
-         "advanced" : false,
-         "optional" : false,
-         "allow_multiple" : false,
-         "field_type" : "text",
-         "text_options" : {
-            "valid_ws_types" : [
-               "KBaseBiochem.Media"
-            ]
-         }
       }
    ], 
    "behavior" : {
@@ -74,16 +46,6 @@
                "input_parameter" : "PflotranModel_id",
                "target_type_transform": "resolved-ref"
                
-            },
-            {
-               "input_parameter" : "FBAModel_id",
-               "target_property" : "FBAModel_id",
-               "target_type_transform": "resolved-ref"
-            },
-            {
-               "input_parameter" : "Media_id",
-               "target_property" : "Media_id",
-               "target_type_transform": "resolved-ref"
             }
          ],
          "output_mapping" : [

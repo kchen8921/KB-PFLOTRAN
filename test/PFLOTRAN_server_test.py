@@ -9,6 +9,7 @@ from PFLOTRAN.PFLOTRANServer import MethodContext
 from PFLOTRAN.authclient import KBaseAuth as _KBaseAuth
 
 from installed_clients.WorkspaceClient import Workspace
+from installed_clients.DataFileUtilClient import DataFileUtil
 
 
 class PFLOTRANTest(unittest.TestCase):
@@ -66,22 +67,52 @@ class PFLOTRANTest(unittest.TestCase):
     #     ret = self.serviceImpl.run_PFLOTRAN(self.ctx, {'workspace_name': self.wsName,
     #                                                    'parameter_1': 'Hello World!'})
 
-    def test_upload(self):
-        # Prepare test objects in workspace if needed using
-        # self.getWsClient().save_objects({'workspace': self.getWsName(),
-        #                                  'objects': []})
-        #
-        # Run your method by
-        # ret = self.getImpl().your_method(self.getContext(), parameters...)
-        #
-        # Check returned data with
-        # self.assertEqual(ret[...], ...) or other unittest methods
-        media = '37663/2/1'
-        fba = '37663/3/1'
-        batch = 'batch'
-        column = 'column'
-        path = ''
-        params = {'workspace_name': self.wsName, 'input_FBA_model': fba,
-                  'input_Media_model': media, 'input_deck_file': batch, 'staging_file_subdir_path': path}
+    # def test_upload(self):
+    #     # Prepare test objects in workspace if needed using
+    #     # self.getWsClient().save_objects({'workspace': self.getWsName(),
+    #     #                                  'objects': []})
+    #     #
+    #     # Run your method by
+    #     # ret = self.getImpl().your_method(self.getContext(), parameters...)
+    #     #
+    #     # Check returned data with
+    #     # self.assertEqual(ret[...], ...) or other unittest methods
+    #     media = '37663/2/1'
+    #     fba = '37663/3/1'
+    #     batch = 'batch'
+    #     column = 'column'
+    #     path = ''
+    #     params = {'workspace_name': self.wsName, 'input_FBA_model': fba,
+    #               'input_Media_model': media, 'input_deck_file': batch, 'staging_file_subdir_path': path}
 
-        ret = self.serviceImpl.upload_pflotran_model(self.ctx, params)
+    #     ret = self.serviceImpl.upload_pflotran_model(self.ctx, params)
+    
+    def test_run(self):
+        params = {'workspace_name': self.wsName,
+                  'parameter_1': 'Hello World!',
+                  'shared_folder': self.scratch}
+        ret = self.serviceImpl.run_PFLOTRAN(self.ctx, params)
+        # db ={"name": "PFLOTRAN_kb", "description": "test",
+        #      "adjustable_parameters":[('pa','a'),('pb','b')], "pflotran_deck": "1/1/1", "hdf_parameters": "1/1/1"}
+        # ws_id = 37681
+
+        # self.callback_url = os.environ['SDK_CALLBACK_URL']
+        # self.dfu = DataFileUtil(self.callback_url)
+
+        # save_object_params = {
+        #     'id': ws_id,
+        #     'objects': [{
+        #         'type': 'KBaseReactiveTransport.PflotranModel',
+        #         'data': db,
+        #         'name': 'test_so'
+        #     }]
+        # }
+
+        # dfu_oi = self.dfu.save_objects(save_object_params)[0]
+
+        # print(dfu_oi)
+        # self.dfu = DataFileUtil(self.callback_url)
+        # genome_ref = "your/object_reference"
+        # genome_data = dfu.get_objects({'object_refs': [genome_ref]})['data'][0]
+        # genome_obj = genome_data['data']
+        # genome_meta = genome_data['info'][10]
