@@ -65,7 +65,7 @@ parameters :
 
     PFLOTRAN_input_deck :
         ui-name : |
-            Output PFLOTRAN input deck
+            Output name PFLOTRAN input deck
         short-hint : |
             Enter a name for the PFLOTRAN input deck to be created.
         placeholder : |
