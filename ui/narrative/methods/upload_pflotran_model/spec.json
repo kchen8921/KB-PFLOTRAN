@@ -131,6 +131,10 @@
                "target_property" : "input_deck_file"
             },
             {
+               "input_parameter" : "staging_file_subdir_path",
+               "target_property" : "staging_file_subdir_path"
+            },
+            {
                "input_parameter" : "hdf_parameter_file",
                "target_property" : "hdf_parameter_file"
             }
