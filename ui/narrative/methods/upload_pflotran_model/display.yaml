@@ -63,7 +63,7 @@ parameters :
         ui-name : Select required input deck for PFLOTRAN from Staging
         short-hint : Select required input deck for PFLOTRAN from Staging
         
-    hdf5_parameters :
+    staging_file_hdf5_parameters :
         ui-name : |
             Select hdf5 file for PFLOTRAN input file (Optional)
         short-hint : |
