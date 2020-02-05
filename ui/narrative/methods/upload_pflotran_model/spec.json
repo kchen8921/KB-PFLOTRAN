@@ -79,7 +79,7 @@
            "data_source": "ftp_staging"
          }
       },{
-         "id" : "hdf5_parameters",
+         "id" : "staging_file_hdf5_parameters",
          "default_values" : [ ""],
          "advanced" : false,
          "field_type" : "dynamic_dropdown",
