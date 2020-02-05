@@ -29,14 +29,6 @@ suggestions :
 # Configure the display and description of the parameters
 #
 parameters :
-    PFLOTRAN_input_deck :
-        ui-name : |
-            Output PFLOTRAN input deck
-        short-hint : |
-            Enter a name for the PFLOTRAN input deck to be created.
-        placeholder : |
-            Output PFLOTRAN input deck
-
     name :
         ui-name : |
             Name
@@ -71,6 +63,14 @@ parameters :
         ui-name : File Path
         short-hint : The staging file subdirectory file path.
 
+    PFLOTRAN_input_deck :
+        ui-name : |
+            Output PFLOTRAN input deck
+        short-hint : |
+            Enter a name for the PFLOTRAN input deck to be created.
+        placeholder : |
+            Output PFLOTRAN input deck
+    
 
 icon: 
 
