@@ -71,7 +71,7 @@ parameters :
         ui-name : File Path
         short-hint : The staging file subdirectory file path.
 
-    hdf_parameter_file :
+    hdf5_parameter_file :
         ui-name : |
             Optional HDF parameter file
         short-hint : |
