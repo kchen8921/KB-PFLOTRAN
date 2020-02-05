@@ -24,6 +24,7 @@
          "dropdown_options": {
             "options": []
          },
+         "allowed_types": "FBAModel",
          "optional" : false,
          "allow_multiple" : false
       },{
@@ -34,6 +35,7 @@
          "dropdown_options": {
             "options": []
          },
+         "allowed_types": "Media",
          "optional" : false,
          "allow_multiple" : false
       },{

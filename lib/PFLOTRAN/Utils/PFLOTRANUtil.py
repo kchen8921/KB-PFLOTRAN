@@ -38,7 +38,7 @@ class PFLOTRANUploadUtil:
         pprint(media_obj)
         pprint(fba_meta)
         pprint(fba_obj)
-
+        # return PflotranModel (link to pflotran_deck: https://appdev.kbase.us/#spec/module/KBaseReactiveTransport) 
         return {}
 
     def _generate_html_report(self):
