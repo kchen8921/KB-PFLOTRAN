@@ -71,7 +71,7 @@ parameters :
     
     PFLOTRAN_input_deck :
         ui-name : |
-            Output name for KBaseReactiveTransport.PflotranModel object
+            Output name for PFLOTRAN model object
         short-hint : |
             Enter a name for the KBaseReactiveTransport.PflotranModel
     
