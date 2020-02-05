@@ -40,7 +40,7 @@
          "optional" : false,
          "allow_multiple" : false
       },{
-         "id" : "input_deck_file",
+         "id" : "input_deck_type",
          "default_values" : [ "batch"],
          "advanced" : false,
          "field_type" : "dropdown",
@@ -69,7 +69,7 @@
          "optional" : false,
          "allow_multiple" : false
       },{
-         "id" : "staging_file_subdir_path",
+         "id" : "input_deck",
          "optional" : true,
          "advanced" : false,
          "allow_multiple" : false,
@@ -88,17 +88,8 @@
          },
          "optional" : true,
          "allow_multiple" : false
-      },{
-         "id" : "staging_file_hdf5_parameters",
-         "optional" : true,
-         "advanced" : false,
-         "allow_multiple" : false,
-         "default_values" : [ "" ],
-         "field_type" : "dynamic_dropdown",
-         "dynamic_dropdown_options" : {
-           "data_source": "ftp_staging"
-         }
-      },{
+      },
+      {
          "id" : "PFLOTRAN_input_deck",
          "default_values" : [],
          "advanced" : false,
@@ -114,8 +105,8 @@
          "method" : "upload_pflotran_model",
          "input_mapping" : [
             {
-               "input_parameter" : "PFLOTRAN_input_deck",
-               "target_property" : "PFLOTRAN_input_deck"
+               "input_parameter" : "PLFOTRAN_model",
+               "target_property" : "PLFOTRAN_model"
             },           
             {
                "target_property" : "workspace",
@@ -132,12 +123,12 @@
                "target_type_transform": "resolved-ref"
             },
             {
-               "input_parameter" : "input_deck_file",
-               "target_property" : "input_deck_file"
+               "input_parameter" : "input_deck_type",
+               "target_property" : "input_deck_type"
             },
             {
-               "input_parameter" : "staging_file_subdir_path",
-               "target_property" : "staging_file_subdir_path"
+               "input_parameter" : "input_deck",
+               "target_property" : "input_deck"
             },
             {
                "input_parameter" : "hdf5_parameters",
