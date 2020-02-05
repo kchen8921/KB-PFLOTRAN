@@ -17,13 +17,6 @@
    },
    "parameters" : [
       {
-         "id" : "PFLOTRAN_input_deck",
-         "default_values" : [],
-         "advanced" : false,
-         "field_type" : "text",
-         "optional" : false,
-         "allow_multiple" : false
-      },{
          "id" : "input_FBA_model",
          "default_values" : [],
          "advanced" : false,
@@ -82,7 +75,14 @@
          "dynamic_dropdown_options" : {
            "data_source": "ftp_staging"
          }
-      }
+      },{
+         "id" : "PFLOTRAN_input_deck",
+         "default_values" : [],
+         "advanced" : false,
+         "field_type" : "text",
+         "optional" : false,
+         "allow_multiple" : false
+    }
    ], 
    "behavior" : {
       "service-mapping" : {
