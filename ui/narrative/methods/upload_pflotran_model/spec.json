@@ -84,7 +84,7 @@
          "allow_multiple" : false
       },{
          "id" : "staging_file_subdir_path",
-         "optional" : false,
+         "optional" : true,
          "advanced" : false,
          "allow_multiple" : false,
          "default_values" : [ "" ],
