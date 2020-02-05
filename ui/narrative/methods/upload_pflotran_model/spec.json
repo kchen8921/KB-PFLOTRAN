@@ -106,7 +106,7 @@
          "field_type" : "text",
          "optional" : false,
          "allow_multiple" : false
-    }
+      }
    ], 
    "behavior" : {
       "service-mapping" : {
