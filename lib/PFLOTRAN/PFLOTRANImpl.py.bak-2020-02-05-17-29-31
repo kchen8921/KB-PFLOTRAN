@@ -3,7 +3,8 @@
 import logging
 import os
 import uuid
-from PFLOTRAN.Utils.PFLOTRANUtil import PFLOTRANUploadUtil
+from KBaseReport.KBaseReportClient import KBaseReport
+from Utils.PFLOTRANUtil import PFLOTRANUploadUtil
 from installed_clients.KBaseReportClient import KBaseReport
 #END_HEADER
 
@@ -25,7 +26,7 @@ class PFLOTRAN:
     ######################################### noqa
     VERSION = "0.0.1"
     GIT_URL = "https://github.com/kchen8921/KB-PFLOTRAN.git"
-    GIT_COMMIT_HASH = "46d82d7a1345808d159cd91e55a0546695d5d881"
+    GIT_COMMIT_HASH = "c267df6a7f3fd10540ca031e525f296158df4c73"
 
     #BEGIN_CLASS_HEADER
     #END_CLASS_HEADER
@@ -51,6 +52,7 @@ class PFLOTRAN:
         """
         # ctx is the context object
         # return variables are: output
+        uuid_string = str(uuid.uuid4())
         #BEGIN run_PFLOTRAN
         html_folder = os.path.join(self.shared_folder, 'html')
         os.mkdir(html_folder)
@@ -88,7 +90,7 @@ class PFLOTRAN:
         # return the results
         return [output]
 
-    def upload_pflotran_model(self, ctx, params):
+    def upload_plfotran_model(self, ctx, params):
         """
         This function enables users to upload files defining a pflotran model including input_deck and hdf5 parameter file
         :param params: instance of mapping from String to unspecified object
@@ -97,17 +99,18 @@ class PFLOTRAN:
         """
         # ctx is the context object
         # return variables are: output
-        #BEGIN upload_pflotran_model
+        #BEGIN upload_plfotran_model
         pu = PFLOTRANUploadUtil(params)
         output = pu.run_uploader() 
-        #END upload_pflotran_model
+        #END upload_plfotran_model
 
         # At some point might do deeper type checking...
         if not isinstance(output, dict):
-            raise ValueError('Method upload_pflotran_model return value ' +
+            raise ValueError('Method upload_plfotran_model return value ' +
                              'output is not type dict as required.')
         # return the results
         return [output]
+        
     def status(self, ctx):
         #BEGIN_STATUS
         returnVal = {'state': "OK",

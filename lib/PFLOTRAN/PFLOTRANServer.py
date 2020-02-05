@@ -342,10 +342,10 @@ class Application(object):
                              name='PFLOTRAN.run_PFLOTRAN',
                              types=[dict])
         self.method_authentication['PFLOTRAN.run_PFLOTRAN'] = 'required'  # noqa
-        self.rpc_service.add(impl_PFLOTRAN.upload_plfotran_model,
-                             name='PFLOTRAN.upload_plfotran_model',
+        self.rpc_service.add(impl_PFLOTRAN.upload_pflotran_model,
+                             name='PFLOTRAN.upload_pflotran_model',
                              types=[dict])
-        self.method_authentication['PFLOTRAN.upload_plfotran_model'] = 'required'  # noqa
+        self.method_authentication['PFLOTRAN.upload_pflotran_model'] = 'required'  # noqa
         self.rpc_service.add(impl_PFLOTRAN.status,
                              name='PFLOTRAN.status',
                              types=[dict])

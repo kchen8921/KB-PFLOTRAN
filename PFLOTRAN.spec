@@ -16,5 +16,5 @@ module PFLOTRAN {
     /*
         This function enables users to upload files defining a pflotran model including input_deck and hdf5 parameter file
     */
-    funcdef upload_plfotran_model(mapping<string,UnspecifiedObject> params) returns (ReportResults output) authentication required;
+    funcdef upload_pflotran_model(mapping<string,UnspecifiedObject> params) returns (ReportResults output) authentication required;
 };

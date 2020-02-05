@@ -53,7 +53,20 @@ class PFLOTRANTest(unittest.TestCase):
             print('Test workspace was deleted')
 
     # NOTE: According to Python unittest naming rules test method names should start from 'test'. # noqa
-    def test_your_method(self):
+    # def test_your_method(self):
+    #     # Prepare test objects in workspace if needed using
+    #     # self.getWsClient().save_objects({'workspace': self.getWsName(),
+    #     #                                  'objects': []})
+    #     #
+    #     # Run your method by
+    #     # ret = self.getImpl().your_method(self.getContext(), parameters...)
+    #     #
+    #     # Check returned data with
+    #     # self.assertEqual(ret[...], ...) or other unittest methods
+    #     ret = self.serviceImpl.run_PFLOTRAN(self.ctx, {'workspace_name': self.wsName,
+    #                                                    'parameter_1': 'Hello World!'})
+
+    def test_upload(self):
         # Prepare test objects in workspace if needed using
         # self.getWsClient().save_objects({'workspace': self.getWsName(),
         #                                  'objects': []})
@@ -63,5 +76,12 @@ class PFLOTRANTest(unittest.TestCase):
         #
         # Check returned data with
         # self.assertEqual(ret[...], ...) or other unittest methods
-        ret = self.serviceImpl.run_PFLOTRAN(self.ctx, {'workspace_name': self.wsName,
-                                                             'parameter_1': 'Hello World!'})
+        media = '37663/2/1'
+        fba = '37663/3/1'
+        batch = 'batch'
+        column = 'column'
+        path = ''
+        params = {'workspace_name': self.wsName, 'input_FBA_model': fba,
+                  'input_Media_model': media, 'input_deck_file': batch, 'staging_file_subdir_path': path}
+
+        ret = self.serviceImpl.upload_pflotran_model(self.ctx, params)
