@@ -139,7 +139,7 @@
             {
                "input_parameter" : "staging_file_subdir_path",
                "target_property" : "staging_file_subdir_path"
-            }
+            },
             {
                "input_parameter" : "hdf5_parameters",
                "target_property" : "hdf5_parameters"
