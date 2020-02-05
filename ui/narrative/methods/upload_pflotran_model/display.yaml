@@ -53,21 +53,27 @@ parameters :
         short-hint : |
             Select Media model with stochiometry 
 
-    input_deck_file :
+    input_deck_type :
         ui-name : |
-            Select input deck file 
+            Select type of input deck
         short-hint : |
-            Select input deck file from your staging area
+            Select type of input deck (Col/Batch/Custom)
     
-    staging_file_subdir_path :
-        ui-name : File Path
-        short-hint : The staging file subdirectory file path.
-
+    input_deck :
+        ui-name : Select required input deck for PFLOTRAN from Staging
+        short-hint : Select required input deck for PFLOTRAN from Staging
+        
+    staging_file_hdf5_parameters :
+        ui-name : |
+            Select hdf5 file for PFLOTRAN input file (Optional)
+        short-hint : |
+            Select hdf5 file for PFLOTRAN input file from your staging area
+    
     PFLOTRAN_input_deck :
         ui-name : |
-            Output name PFLOTRAN input deck
+            Output name for KBaseReactiveTransport.PflotranModel object
         short-hint : |
-            Enter a name for the PFLOTRAN input deck to be created.
+            Enter a name for the KBaseReactiveTransport.PflotranModel
     
 
 icon: 
