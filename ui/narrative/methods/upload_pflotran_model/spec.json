@@ -137,6 +137,10 @@
             {
                "input_parameter" : "staging_file_hdf5_parameters",
                "target_property" : "staging_file_hdf5_parameters"
+            },
+            {
+               "input_parameter" : "PFLOTRAN_input_deck",
+               "target_property" : "PFLOTRAN_input_deck"
             }
          ],
          "output_mapping" : [
