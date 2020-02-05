@@ -74,7 +74,7 @@
                 },
                 {
                   "value": "custom",
-                  "display": "Custom Reaction",
+                  "display": "Custom Reaction {Please provide file below}",
                   "id": "custom_reaction",
                   "ui_name": "Custom Reaction"
                 }
