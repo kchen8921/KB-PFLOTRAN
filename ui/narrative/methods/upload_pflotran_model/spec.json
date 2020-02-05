@@ -83,6 +83,16 @@
          "optional" : false,
          "allow_multiple" : false
       },{
+         "id" : "staging_file_subdir_path",
+         "optional" : false,
+         "advanced" : false,
+         "allow_multiple" : false,
+         "default_values" : [ "" ],
+         "field_type" : "dynamic_dropdown",
+         "dynamic_dropdown_options" : {
+           "data_source": "ftp_staging"
+         }
+       },{
          "id" : "hdf_parameter_file",
          "default_values" : [ "" ],
          "advanced" : true,
