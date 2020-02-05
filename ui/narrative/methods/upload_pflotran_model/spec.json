@@ -17,42 +17,12 @@
    },
    "parameters" : [
       {
-         "id" : "PflotranModel_id",
-         "default_values" : [
-            ""
-         ],
+         "id" : "PFLOTRAN_input_deck",
+         "default_values" : [],
          "advanced" : false,
+         "field_type" : "text",
          "optional" : false,
-         "allow_multiple" : false,
-         "field_type" : "text",
-         "text_options" : {
-            "valid_ws_types" : [
-               "KBaseReactiveTransport.PflotranModel"
-            ],
-            "is_output_name" : true
-         }
-      },{
-         "id" : "name", 
-         "default_values" : [
-            ""
-         ],
-         "advanced" : false,
-         "field_type" : "text",
-         "allow_multiple" : false,
-         "optional" : true,
-         "text_options" : {
-            "valid_ws_types" : []
-         }
-      },{
-         "id": "description",
-         "optional": true,
-         "advanced": false,
-         "allow_multiple": false,
-         "default_values": [ "" ],
-         "field_type": "textarea",
-         "textarea_options" : {
-            "n_rows" : 5
-    	   }
+         "allow_multiple" : false
       },{
          "id" : "input_FBA_model",
          "default_values" : [],
@@ -112,16 +82,6 @@
          "dynamic_dropdown_options" : {
            "data_source": "ftp_staging"
          }
-       },{
-         "id" : "hdf5_parameter_file",
-         "default_values" : [ "" ],
-         "advanced" : true,
-         "field_type" : "dynamic_dropdown",
-         "optional" : true,
-         "allow_multiple" : false,
-         "text_options" : {
-            "valid_ws_types" : [ ]
-         }
       }
    ], 
    "behavior" : {
@@ -131,20 +91,12 @@
          "method" : "upload_pflotran_model",
          "input_mapping" : [
             {
+               "input_parameter" : "PFLOTRAN_input_deck",
+               "target_property" : "PFLOTRAN_input_deck"
+            },           
+            {
                "target_property" : "workspace",
                "narrative_system_variable" : "workspace"
-            },
-            {
-               "target_property" : "PflotranModel_id",
-               "input_parameter" : "PflotranModel_id"
-            },
-            {
-               "input_parameter" : "name",
-               "target_property" : "name"
-            },
-            {
-               "input_parameter" : "description",
-               "target_property" : "description"
             },
             {
                "input_parameter" : "input_FBA_model",
@@ -161,10 +113,6 @@
             {
                "input_parameter" : "staging_file_subdir_path",
                "target_property" : "staging_file_subdir_path"
-            },
-            {
-               "input_parameter" : "hdf5_parameter_file",
-               "target_property" : "hdf5_parameter_file"
             }
          ],
          "output_mapping" : [

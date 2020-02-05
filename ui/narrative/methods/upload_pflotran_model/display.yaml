@@ -29,7 +29,7 @@ suggestions :
 # Configure the display and description of the parameters
 #
 parameters :
-    PflotranModel_id :
+    PFLOTRAN_input_deck :
         ui-name : |
             Output PFLOTRAN input deck
         short-hint : |
@@ -71,11 +71,6 @@ parameters :
         ui-name : File Path
         short-hint : The staging file subdirectory file path.
 
-    hdf5_parameter_file :
-        ui-name : |
-            Optional HDF parameter file
-        short-hint : |
-            Select optional HDF file with definitions for additional parameters in your model
 
 icon: 
 
