@@ -69,7 +69,7 @@ parameters :
         short-hint : |
             Select hdf5 file for PFLOTRAN input file from your staging area
     
-    PLFOTRAN_input_deck :
+    PFLOTRAN_input_deck :
         ui-name : |
             Output name for KBaseReactiveTransport.PflotranModel object
         short-hint : |
