@@ -127,10 +127,6 @@
                "target_property" : "input_deck"
             },
             {
-               "input_parameter" : "hdf5_parameters",
-               "target_property" : "hdf5_parameters"
-            },
-            {
                "input_parameter" : "staging_file_hdf5_parameters",
                "target_property" : "staging_file_hdf5_parameters"
             },
