@@ -103,11 +103,7 @@
          "url" : "",
          "name" : "PFLOTRAN",
          "method" : "upload_pflotran_model",
-         "input_mapping" : [
-            {
-               "input_parameter" : "PLFOTRAN_model",
-               "target_property" : "PLFOTRAN_model"
-            },           
+         "input_mapping" : [         
             {
                "target_property" : "workspace",
                "narrative_system_variable" : "workspace"
