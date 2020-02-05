@@ -24,9 +24,13 @@
          "dropdown_options": {
             "options": []
          },
-         "allowed_types": "FBAModel",
          "optional" : false,
-         "allow_multiple" : false
+         "text_options" : {
+            "valid_ws_types" : [
+               "KBaseFBA.FBAModel"
+            ],
+            "is_output_name" : true
+         }
       },{
          "id" : "input_Media_model",
          "default_values" : [],
@@ -35,7 +39,12 @@
          "dropdown_options": {
             "options": []
          },
-         "allowed_types": "Media",
+         "text_options" : {
+            "valid_ws_types" : [
+               "KBaseBiochem.Media"
+            ],
+            "is_output_name" : true
+         },
          "optional" : false,
          "allow_multiple" : false
       },{
