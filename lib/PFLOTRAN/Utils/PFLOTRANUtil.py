@@ -25,9 +25,9 @@ class PFLOTRANRunUtil:
     def run_pflotran(self):
         shared_folder = self.params['shared_folder']
         # Check PFLOTRAN input deck
-        pflotran_model = self.params['input_model']
-        hdf5_file = pflotran_model['hdf5_parameters']
-        input_deck = pflotran_model['input_deck']
+        # pflotran_model = self.params['input_model']
+        # hdf5_file = pflotran_model['hdf5_parameters']
+        # input_deck = pflotran_model['input_deck']
 
         # Run PFLOTRAN
 
