@@ -54,6 +54,26 @@
             "n_rows" : 5
     	   }
       },{
+         "id" : "input_FBA_model",
+         "default_values" : [],
+         "advanced" : false,
+         "field_type" : "dropdown",
+         "dropdown_options": {
+            "options": []
+         },
+         "optional" : false,
+         "allow_multiple" : false
+      },{
+         "id" : "input_Media_model",
+         "default_values" : [],
+         "advanced" : false,
+         "field_type" : "dropdown",
+         "dropdown_options": {
+            "options": []
+         },
+         "optional" : false,
+         "allow_multiple" : false
+      },{
          "id" : "input_deck_file",
          "default_values" : [ "batch"],
          "advanced" : false,
@@ -93,7 +113,7 @@
            "data_source": "ftp_staging"
          }
        },{
-         "id" : "hdf_parameter_file",
+         "id" : "hdf5_parameter_file",
          "default_values" : [ "" ],
          "advanced" : true,
          "field_type" : "dynamic_dropdown",
@@ -125,6 +145,14 @@
             {
                "input_parameter" : "description",
                "target_property" : "description"
+            },
+            {
+               "input_parameter" : "input_FBA_model",
+               "target_property" : "input_FBA_model"
+            },
+            {
+               "input_parameter" : "input_Media_model",
+               "target_property" : "input_Media_model"
             },
             {
                "input_parameter" : "input_deck_file",

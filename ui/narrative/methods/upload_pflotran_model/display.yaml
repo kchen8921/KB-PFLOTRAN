@@ -31,11 +31,11 @@ suggestions :
 parameters :
     PflotranModel_id :
         ui-name : |
-            Output PFLOTRAN model
+            Output PFLOTRAN input deck
         short-hint : |
-            Enter a name for the PFLOTRAN model to be created.
+            Enter a name for the PFLOTRAN input deck to be created.
         placeholder : |
-            Output PFLOTRAN model name
+            Output PFLOTRAN input deck
 
     name :
         ui-name : |
@@ -49,6 +49,18 @@ parameters :
         short-hint : |
             Longer description of model
 
+    input_FBA_model :
+        ui-name : |
+            Select FBA model 
+        short-hint : |
+            Select FBA model with stochiometry 
+
+    input_Media_model :
+        ui-name : |
+            Select Media model 
+        short-hint : |
+            Select Media model with stochiometry 
+
     input_deck_file :
         ui-name : |
             Select input deck file 
@@ -58,7 +70,7 @@ parameters :
     staging_file_subdir_path :
         ui-name : File Path
         short-hint : The staging file subdirectory file path.
-        
+
     hdf_parameter_file :
         ui-name : |
             Optional HDF parameter file
