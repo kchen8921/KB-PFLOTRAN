@@ -54,18 +54,6 @@ class PFLOTRANTest(unittest.TestCase):
             print('Test workspace was deleted')
 
     # NOTE: According to Python unittest naming rules test method names should start from 'test'. # noqa
-    # def test_your_method(self):
-    #     # Prepare test objects in workspace if needed using
-    #     # self.getWsClient().save_objects({'workspace': self.getWsName(),
-    #     #                                  'objects': []})
-    #     #
-    #     # Run your method by
-    #     # ret = self.getImpl().your_method(self.getContext(), parameters...)
-    #     #
-    #     # Check returned data with
-    #     # self.assertEqual(ret[...], ...) or other unittest methods
-    #     ret = self.serviceImpl.run_PFLOTRAN(self.ctx, {'workspace_name': self.wsName,
-    #                                                    'parameter_1': 'Hello World!'})
 
     # def test_upload(self):
     #     # Prepare test objects in workspace if needed using
@@ -88,10 +76,12 @@ class PFLOTRANTest(unittest.TestCase):
     #     ret = self.serviceImpl.upload_pflotran_model(self.ctx, params)
     
     def test_run(self):
-    #     # params = {'workspace_name': self.wsName,
-        #           'parameter_1': 'Hello World!',
-        #           'shared_folder': self.scratch}
-        # ret = self.serviceImpl.run_PFLOTRAN(self.ctx, params)
+        params = {'workspace': self.wsName,
+                  'parameter_1': 'Hello World!',
+                  'shared_folder': self.scratch}
+        ret = self.serviceImpl.run_PFLOTRAN(self.ctx, params)
+
+    def test_run2(self):
         db ={"name": "PFLOTRAN_kb", "description": "test",
              "pflotran_deck": "KBH_102912", "hdf_parameters": "1/1/1"}
         ws_id = 37700
@@ -108,7 +98,7 @@ class PFLOTRANTest(unittest.TestCase):
             }]
         }
 
-        dfu_oi = self.dfu.save_objects(save_object_params)[0]
+        # dfu_oi = self.dfu.save_objects(save_object_params)[0]
 
         # print(dfu_oi)
         # self.dfu = DataFileUtil(self.callback_url)
