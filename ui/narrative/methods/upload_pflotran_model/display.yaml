@@ -68,8 +68,6 @@ parameters :
             Output name PFLOTRAN input deck
         short-hint : |
             Enter a name for the PFLOTRAN input deck to be created.
-        placeholder : |
-            Output PFLOTRAN input deck
     
 
 icon: 
