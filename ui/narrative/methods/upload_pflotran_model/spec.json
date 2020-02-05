@@ -163,8 +163,8 @@
                "target_property" : "staging_file_subdir_path"
             },
             {
-               "input_parameter" : "hdf_parameter_file",
-               "target_property" : "hdf_parameter_file"
+               "input_parameter" : "hdf5_parameter_file",
+               "target_property" : "hdf5_parameter_file"
             }
          ],
          "output_mapping" : [
