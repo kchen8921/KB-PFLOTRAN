@@ -54,7 +54,11 @@ parameters :
             Select input deck file 
         short-hint : |
             Select input deck file from your staging area
-            
+    
+    staging_file_subdir_path :
+        ui-name : File Path
+        short-hint : The staging file subdirectory file path.
+        
     hdf_parameter_file :
         ui-name : |
             Optional HDF parameter file
