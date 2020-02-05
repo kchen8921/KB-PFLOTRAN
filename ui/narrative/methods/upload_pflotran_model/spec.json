@@ -82,10 +82,9 @@
          "id" : "hdf5_parameters",
          "default_values" : [ ""],
          "advanced" : false,
-         "field_type" : "dropdown",
-         "dropdown_options": {
-            "options": [
-               ]
+         "field_type" : "dynamic_dropdown",
+         "dynamic_dropdown_options": {
+            "data_source": "ftp_staging"
          },
          "optional" : true,
          "allow_multiple" : false
