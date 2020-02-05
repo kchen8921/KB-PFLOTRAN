@@ -25,12 +25,8 @@ class PFLOTRANRunUtil:
     def run_pflotran(self):
         shared_folder = self.params['shared_folder']
         # Check PFLOTRAN input deck
-        pflotran_model = self.params['input_model']
-        hdf5_file = pflotran_model['hdf5_parameters']
-        input_deck = pflotran_model['input_deck']
 
         # Run PFLOTRAN
-
 
         # Get the output file
         self.hdf_output_file = os.path.join(shared_folder,'test.h5')
@@ -169,7 +165,7 @@ class PFLOTRANUploadUtil:
         pprint(media_obj)
         pprint(fba_meta)
         pprint(fba_obj)
-        # return PflotranModel (link to pflotran_deck: https://appdev.kbase.us/#spec/module/KBaseReactiveTransport) 
+
         return {}
 
     def _generate_html_report(self):

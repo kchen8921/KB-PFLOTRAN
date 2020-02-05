@@ -21,7 +21,7 @@
             ""
          ],
          "advanced" : false,
-         "optional" : false,
+         "optional" : true,
          "allow_multiple" : false,
          "field_type" : "text",
          "text_options" : {

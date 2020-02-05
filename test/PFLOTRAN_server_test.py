@@ -88,27 +88,27 @@ class PFLOTRANTest(unittest.TestCase):
     #     ret = self.serviceImpl.upload_pflotran_model(self.ctx, params)
     
     def test_run(self):
-        params = {'workspace_name': self.wsName,
-                  'parameter_1': 'Hello World!',
-                  'shared_folder': self.scratch}
-        ret = self.serviceImpl.run_PFLOTRAN(self.ctx, params)
-        # db ={"name": "PFLOTRAN_kb", "description": "test",
-        #      "adjustable_parameters":[('pa','a'),('pb','b')], "pflotran_deck": "1/1/1", "hdf_parameters": "1/1/1"}
-        # ws_id = 37681
+    #     # params = {'workspace_name': self.wsName,
+        #           'parameter_1': 'Hello World!',
+        #           'shared_folder': self.scratch}
+        # ret = self.serviceImpl.run_PFLOTRAN(self.ctx, params)
+        db ={"name": "PFLOTRAN_kb", "description": "test",
+             "pflotran_deck": "KBH_102912", "hdf_parameters": "1/1/1"}
+        ws_id = 37700
 
-        # self.callback_url = os.environ['SDK_CALLBACK_URL']
-        # self.dfu = DataFileUtil(self.callback_url)
+        self.callback_url = os.environ['SDK_CALLBACK_URL']
+        self.dfu = DataFileUtil(self.callback_url)
 
-        # save_object_params = {
-        #     'id': ws_id,
-        #     'objects': [{
-        #         'type': 'KBaseReactiveTransport.PflotranModel',
-        #         'data': db,
-        #         'name': 'test_so'
-        #     }]
-        # }
+        save_object_params = {
+            'id': ws_id,
+            'objects': [{
+                'type': 'KBaseReactiveTransport.PflotranModel',
+                'data': db,
+                'name': 'test_so'
+            }]
+        }
 
-        # dfu_oi = self.dfu.save_objects(save_object_params)[0]
+        dfu_oi = self.dfu.save_objects(save_object_params)[0]
 
         # print(dfu_oi)
         # self.dfu = DataFileUtil(self.callback_url)
