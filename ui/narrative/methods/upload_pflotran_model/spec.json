@@ -18,7 +18,7 @@
    "parameters" : [
       {
          "id" : "input_FBA_model",
-         "default_values" : [],
+         "default_values" : [""],
          "advanced" : false,
          "field_type" : "dynamic_dropdown",
          "optional" : false,
@@ -30,7 +30,7 @@
          }
       },{
          "id" : "input_Media_model",
-         "default_values" : [],
+         "default_values" : [""],
          "advanced" : false,
          "field_type" : "dynamic_dropdown",
          "text_options" : {
