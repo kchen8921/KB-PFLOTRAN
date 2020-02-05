@@ -25,8 +25,7 @@
          "text_options" : {
             "valid_ws_types" : [
                "KBaseFBA.FBAModel"
-            ],
-            "is_output_name" : true
+            ]
          }
       },{
          "id" : "input_Media_model",
@@ -36,8 +35,7 @@
          "text_options" : {
             "valid_ws_types" : [
                "KBaseBiochem.Media"
-            ],
-            "is_output_name" : true
+            ]
          },
          "optional" : false,
          "allow_multiple" : false
