@@ -65,12 +65,12 @@ parameters :
 
     hdf5_parameters :
         ui-name : |
-            Select hdf5 file for PFLOTRAN input file
+            Select hdf5 file for PFLOTRAN input file (Optional)
         short-hint : |
             Select hdf5 file for PFLOTRAN input file from your staging area
     
     staging_file_hdf5_parameters :
-        ui-name : File Path
+        ui-name : File Path for hdf5 of PFLOTRAN input file (Optional)
         short-hint : The staging file subdirectory file path.
 
     PFLOTRAN_input_deck :
