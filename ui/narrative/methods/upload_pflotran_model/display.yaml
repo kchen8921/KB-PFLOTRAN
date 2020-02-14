@@ -60,14 +60,14 @@ parameters :
             Select type of input deck (Col/Batch/Custom)
     
     staging_custom_input_deck :
-        ui-name : Select required input deck for PFLOTRAN from Staging
-        short-hint : Select required input deck for PFLOTRAN from Staging
+        ui-name : Select PFLOTRAN input deck for custom reaction (Optional)
+        short-hint : Select required PFLOTRAN input deck for custom reaction from staging
         
     staging_custom_hdf5_parameters :
         ui-name : |
-            Select hdf5 file for PFLOTRAN input file (Optional)
+            Select hdf5 file for PFLOTRAN input deck for custom reaction (Optional)
         short-hint : |
-            Select hdf5 file for PFLOTRAN input file from your staging area
+            Select hdf5 file for PFLOTRAN input deck for custom reaction from your staging area
     
     PFLOTRAN_obj :
         ui-name : |
