@@ -59,17 +59,17 @@ parameters :
         short-hint : |
             Select type of input deck (Col/Batch/Custom)
     
-    input_deck :
+    staging_custom_input_deck :
         ui-name : Select required input deck for PFLOTRAN from Staging
         short-hint : Select required input deck for PFLOTRAN from Staging
         
-    staging_file_hdf5_parameters :
+    staging_custom_hdf5_parameters :
         ui-name : |
             Select hdf5 file for PFLOTRAN input file (Optional)
         short-hint : |
             Select hdf5 file for PFLOTRAN input file from your staging area
     
-    PFLOTRAN_input_deck :
+    PFLOTRAN_obj :
         ui-name : |
             Output name for PFLOTRAN model object
         short-hint : |
