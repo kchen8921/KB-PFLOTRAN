@@ -25,17 +25,24 @@ class PFLOTRANRunUtil:
     def run_pflotran(self):
         shared_folder = self.params['shared_folder']
         # Check PFLOTRAN input deck
-        pprint(self.params)
-        pflotran_model = self.params['PflotranModel_id']
-        pflotran_model_data = self.dfu.get_objects({'object_refs': [pflotran_model]})['data'][0]
-        pflotran_model_data_obj = pflotran_model_data['data']
-        pflotran_model_data_meta = pflotran_model_data['info'][10]
+# <<<<<<< HEAD
+#         pprint(self.params)
+#         pflotran_model = self.params['PflotranModel_id']
+#         pflotran_model_data = self.dfu.get_objects({'object_refs': [pflotran_model]})['data'][0]
+#         pflotran_model_data_obj = pflotran_model_data['data']
+#         pflotran_model_data_meta = pflotran_model_data['info'][10]
 
-        hdf5_file = pflotran_model['hdf5_parameters']
-        input_deck = pflotran_model['input_deck']
-        pprint(pflotran_model_data_obj)
-        pprint(pflotran_model_data_meta)
-        pprint(input_deck)
+#         hdf5_file = pflotran_model['hdf5_parameters']
+#         input_deck = pflotran_model['input_deck']
+#         pprint(pflotran_model_data_obj)
+#         pprint(pflotran_model_data_meta)
+#         pprint(input_deck)
+# =======
+#         # pflotran_model = self.params['input_model']
+#         # hdf5_file = pflotran_model['hdf5_parameters']
+#         # input_deck = pflotran_model['input_deck']
+
+# >>>>>>> parent of 3374f33... run pflotran
         # Run PFLOTRAN
 
 
@@ -158,8 +165,9 @@ class PFLOTRANUploadUtil:
         self.data_folder = os.path.abspath('./data/')
 
     def run_uploader(self):
-        print(self.data_folder)
+        print('params',self.params)
         data_folder = os.path.join(self.data_folder, "batch.in")
+        print('data_folder',data_folder)
         media = self.params['input_Media_model']
         fba = self.params['input_FBA_model']
         # reaction = self.params['input_deck_file']
@@ -185,7 +193,7 @@ class PFLOTRANUploadUtil:
              "pflotran_deck": "KBH_102912", "hdf_parameters": "1/1/1"}
         ws_id = 37700
 
-        pflotran_obj = {
+        pflotran_save = {
             'id': ws_id,
             'objects': [{
                 'type': 'KBaseReactiveTransport.PflotranModel',
@@ -194,7 +202,7 @@ class PFLOTRANUploadUtil:
             }]
         }
 
-        return pflotran_obj
+        return pflotran_save
 
     def _generate_html_report(self):
         media = self.params['input_Media_model']

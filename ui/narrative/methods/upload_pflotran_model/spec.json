@@ -53,12 +53,6 @@
                   "ui_name": "Batch Reaction"
                 },
                 {
-                  "value": "column",
-                  "display": "Column Reaction",
-                  "id": "column_reaction",
-                  "ui_name": "Column Reaction"
-                },
-                {
                   "value": "custom",
                   "display": "Custom Reaction {Please provide file below}",
                   "id": "custom_reaction",
@@ -69,7 +63,7 @@
          "optional" : false,
          "allow_multiple" : false
       },{
-         "id" : "input_deck",
+         "id" : "staging_custom_input_deck",
          "optional" : true,
          "advanced" : false,
          "allow_multiple" : false,
@@ -79,7 +73,7 @@
            "data_source": "ftp_staging"
          }
       },{
-         "id" : "staging_file_hdf5_parameters",
+         "id" : "staging_custom_hdf5_parameters",
          "default_values" : [ ""],
          "advanced" : false,
          "field_type" : "dynamic_dropdown",
@@ -90,12 +84,17 @@
          "allow_multiple" : false
       },
       {
-         "id" : "PFLOTRAN_input_deck",
+         "id" : "PFLOTRAN_obj",
          "default_values" : [],
          "advanced" : false,
          "field_type" : "text",
          "optional" : false,
-         "allow_multiple" : false
+         "allow_multiple" : false,
+         "text_options" : {
+            "valid_ws_types" : [
+               "KBaseReactiveTransport.PflotranModel"
+            ]
+         }
       }
    ], 
    "behavior" : {
@@ -123,16 +122,17 @@
                "target_property" : "input_deck_type"
             },
             {
-               "input_parameter" : "input_deck",
-               "target_property" : "input_deck"
+               "input_parameter" : "staging_custom_input_deck",
+               "target_property" : "staging_custom_input_deck"
             },
             {
-               "input_parameter" : "staging_file_hdf5_parameters",
-               "target_property" : "staging_file_hdf5_parameters"
+               "input_parameter" : "staging_custom_hdf5_parameters",
+               "target_property" : "staging_custom_hdf5_parameters"
             },
             {
-               "input_parameter" : "PFLOTRAN_input_deck",
-               "target_property" : "PFLOTRAN_input_deck"
+               "input_parameter" : "PFLOTRAN_obj",
+               "target_property" : "PFLOTRAN_obj",
+               "target_type_transform": "resolved-ref"
             }
          ],
          "output_mapping" : [
