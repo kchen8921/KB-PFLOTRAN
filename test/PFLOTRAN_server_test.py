@@ -84,7 +84,7 @@ class PFLOTRANTest(unittest.TestCase):
     def test_run2(self):
         db ={"name": "PFLOTRAN_kb", "description": "test",
              "pflotran_deck": "KBH_102912", "hdf_parameters": "1/1/1"}
-        ws_id = 37700
+        ws_id = 38181
 
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.dfu = DataFileUtil(self.callback_url)
