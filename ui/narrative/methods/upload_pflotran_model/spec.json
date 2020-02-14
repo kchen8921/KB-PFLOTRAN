@@ -88,7 +88,7 @@
          "default_values" : [],
          "advanced" : false,
          "field_type" : "text",
-         "optional" : false,
+         "optional" : true,
          "allow_multiple" : false,
          "text_options" : {
             "valid_ws_types" : [
