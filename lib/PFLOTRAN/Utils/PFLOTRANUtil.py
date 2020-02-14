@@ -189,20 +189,33 @@ class PFLOTRANUploadUtil:
         pprint(fba_obj)
         # return PflotranModel (link to pflotran_deck: https://appdev.kbase.us/#spec/module/KBaseReactiveTransport) 
         
-        db ={"name": "batch", "description": "batch reaction",
-             "pflotran_deck": "KBH_102912", "hdf_parameters": "1/1/1"}
-        ws_id = 37700
-
-        pflotran_save = {
+        pf_fp = f"{self.scratch}/pflotran_deck"
+        with open(pf_fp, 'w') as f:
+            f.write("Something for pflotran\n")
+        hdf_fp = f"{self.scratch}/hdf_parameters"
+        with open(hdf_fp, 'w') as f:
+            f.write("Something hdf\n")
+        print(       os.listdir(self.scratch))
+        self.callback_url = os.environ['SDK_CALLBACK_URL']
+        self.dfu = DataFileUtil(self.callback_url)
+        deck_handle = self.dfu.file_to_shock({'file_path': pf_fp, 'make_handle': True})['handle']['hid']
+        hdf_handle = self.dfu.file_to_shock({'file_path': hdf_fp, 'make_handle': True})['handle']['hid']
+        print(deck_handle)
+        print(hdf_handle)
+        db = {"name": "PFLOTRAN_kb", "description": "test","pflotran_deck": deck_handle, "hdf_parameters": hdf_handle}
+        #CHANGE THIS!
+        ws_id = 38181   
+        save_object_params = {
             'id': ws_id,
             'objects': [{
                 'type': 'KBaseReactiveTransport.PflotranModel',
                 'data': db,
-                'name': 'test_batch'
+                'name': 'test_so'
             }]
         }
+        dfu_oi = self.dfu.save_objects(save_object_params)[0]
 
-        return pflotran_save
+        return dfu_oi
 
     def _generate_html_report(self):
         media = self.params['input_Media_model']
