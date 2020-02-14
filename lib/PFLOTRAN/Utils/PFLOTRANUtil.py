@@ -210,7 +210,7 @@ class PFLOTRANUploadUtil:
             'objects': [{
                 'type': 'KBaseReactiveTransport.PflotranModel',
                 'data': db,
-                'name': 'test_so'
+                # 'name': 'test_so'
             }]
         }
         dfu_oi = self.dfu.save_objects(save_object_params)[0]
