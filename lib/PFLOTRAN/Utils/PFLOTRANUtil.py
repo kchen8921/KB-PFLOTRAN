@@ -216,7 +216,7 @@ class PFLOTRANUploadUtil:
         }
         dfu_oi = self.dfu.save_objects(save_object_params)[0]
 
-        return {'name':dfu_oi[0],'pflotran_deck':dfu_oi[2]}
+        return {'0':dfu_oi[0],'1':dfu_oi[1],'2':dfu_oi[2],'3':dfu_oi[2],'4':dfu_oi[4]}
 
     def _generate_html_report(self):
         media = self.params['input_Media_model']
