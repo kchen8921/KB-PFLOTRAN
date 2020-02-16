@@ -101,6 +101,7 @@ class PFLOTRAN:
         # ctx is the context object
         # return variables are: output
         #BEGIN upload_pflotran_model
+        params['shared_folder'] = self.shared_folder
         pu = PFLOTRANUploadUtil(params)
         output = pu.run_uploader() 
         #END upload_pflotran_model

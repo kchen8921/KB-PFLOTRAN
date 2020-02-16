@@ -158,12 +158,11 @@ class PFLOTRANRunUtil:
 
 
 class PFLOTRANUploadUtil:
-    def __init__(self,params,config):
+    def __init__(self,params):
         self.params = params
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.dfu = DataFileUtil(self.callback_url)
         self.data_folder = os.path.abspath('./data/')
-        self.scratch = config['scratch']
 
     def run_uploader(self):
         print('params',self.params)
@@ -190,13 +189,13 @@ class PFLOTRANUploadUtil:
         pprint(fba_obj)
         # return PflotranModel (link to pflotran_deck: https://appdev.kbase.us/#spec/module/KBaseReactiveTransport) 
         
-        pf_fp = f"{self.scratch}/pflotran_deck"
+        pf_fp = f"{self.params['share_folder']}/pflotran_deck"
         with open(pf_fp, 'w') as f:
             f.write("Something for pflotran\n")
-        hdf_fp = f"{self.scratch}/hdf_parameters"
+        hdf_fp = f"{self.params['share_folder']}/hdf_parameters"
         with open(hdf_fp, 'w') as f:
             f.write("Something hdf\n")
-        print(       os.listdir(self.scratch))
+        print(       os.listdir(self.params['share_folder']))
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.dfu = DataFileUtil(self.callback_url)
         deck_handle = self.dfu.file_to_shock({'file_path': pf_fp, 'make_handle': True})['handle']['hid']
