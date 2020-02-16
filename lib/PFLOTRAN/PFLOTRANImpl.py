@@ -107,6 +107,7 @@ class PFLOTRAN:
         #END upload_pflotran_model
 
         # # At some point might do deeper type checking...
+        
         # if not isinstance(output, dict):
         #     raise ValueError('Method upload_pflotran_model return value ' +
         #                      'output is not type dict as required.')
