@@ -158,13 +158,13 @@ class PFLOTRANRunUtil:
 
 
 class PFLOTRANUploadUtil:
-    def __init__(self,params,scratch):
+    def __init__(self,params,config):
         self.params = params
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.dfu = DataFileUtil(self.callback_url)
         self.data_folder = os.path.abspath('./data/')
-        self.scratch = scratch
-        
+        self.scratch = config['scratch']
+
     def run_uploader(self):
         print('params',self.params)
         data_folder = os.path.join(self.data_folder, "batch.in")
