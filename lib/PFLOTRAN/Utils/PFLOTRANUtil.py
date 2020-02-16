@@ -165,6 +165,7 @@ class PFLOTRANUploadUtil:
         self.data_folder = os.path.abspath('./data/')
 
     def run_uploader(self):
+        shared_folder = self.params['shared_folder']
         print('params',self.params)
         data_folder = os.path.join(self.data_folder, "batch.in")
         print('data_folder',data_folder)
@@ -189,13 +190,13 @@ class PFLOTRANUploadUtil:
         pprint(fba_obj)
         # return PflotranModel (link to pflotran_deck: https://appdev.kbase.us/#spec/module/KBaseReactiveTransport) 
         
-        pf_fp = f"{self.params['share_folder']}/pflotran_deck"
+        pf_fp = f"{shared_folder}/pflotran_deck"
         with open(pf_fp, 'w') as f:
             f.write("Something for pflotran\n")
-        hdf_fp = f"{self.params['share_folder']}/hdf_parameters"
+        hdf_fp = f"{shared_folder}/hdf_parameters"
         with open(hdf_fp, 'w') as f:
             f.write("Something hdf\n")
-        print(       os.listdir(self.params['share_folder']))
+        print(       os.listdir(shared_folder))
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.dfu = DataFileUtil(self.callback_url)
         deck_handle = self.dfu.file_to_shock({'file_path': pf_fp, 'make_handle': True})['handle']['hid']
