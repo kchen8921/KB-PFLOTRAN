@@ -192,10 +192,10 @@ class PFLOTRANUploadUtil:
         
         pf_fp = f"{shared_folder}/pflotran_deck"
         with open(pf_fp, 'w') as f:
-            f.write("Something for pflotran\n")
+            f.write("{}\n".format(data_folder))
         hdf_fp = f"{shared_folder}/hdf_parameters"
         with open(hdf_fp, 'w') as f:
-            f.write("Something hdf\n")
+            f.write("{}\n".format(data_folder))
         print("shared_folder:",       os.listdir(shared_folder))
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.dfu = DataFileUtil(self.callback_url)
