@@ -196,10 +196,10 @@ class PFLOTRANUploadUtil:
         # hdf_fp = f"{shared_folder}/hdf_parameters"
         # with open(hdf_fp, 'w') as f:
         #     f.write("{}\n".format(data_folder))
-        pf_fp = f"{self.data_folder}/pflotran_deck"
+        pf_fp = f"{self.data_folder}"
         with open(pf_fp, 'w') as f:
             f.write("{}\n".format(data_folder))
-        hdf_fp = f"{self.data_folder}/hdf_parameters"
+        hdf_fp = f"{self.data_folder}"
         with open(hdf_fp, 'w') as f:
             f.write("{}\n".format(data_folder))
         print("shared_folder:",       os.listdir(shared_folder))
