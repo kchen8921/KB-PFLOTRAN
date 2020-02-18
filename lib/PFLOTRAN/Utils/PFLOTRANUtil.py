@@ -200,8 +200,10 @@ class PFLOTRANUploadUtil:
         print("shared_folder:",       os.listdir(shared_folder))
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.dfu = DataFileUtil(self.callback_url)
-        deck_handle = self.dfu.file_to_shock({'file_path': data_folder, 'make_handle': True})['handle']['hid']
-        hdf_handle = self.dfu.file_to_shock({'file_path': data_folder, 'make_handle': True})['handle']['hid']
+        staging_path = '/staging/'
+        pflo_deck = 'nrz_exp.in'
+        deck_handle = self.dfu.file_to_shock({'file_path': staging_path+pflo_deck, 'make_handle': True})['handle']['hid']
+        hdf_handle = self.dfu.file_to_shock({'file_path': staging_path+pflo_deck, 'make_handle': True})['handle']['hid']
         print("deck_handle:",deck_handle)
         print("hdf_handle:",hdf_handle)
         db = {"name": "PFLOTRAN_kb", "description": "test","pflotran_deck": deck_handle, "hdf_parameters": hdf_handle}
@@ -222,8 +224,8 @@ class PFLOTRANUploadUtil:
         pflo_data = self.dfu.get_objects({'object_refs': ['38181/test_so']})['data'][0]
         
         pflo_obj = pflo_data['data']
-        pflo_deck = pflo_obj['pflotran_deck']
-        pprint(pflo_deck)
+        # pflo_deck = pflo_obj['pflotran_deck']
+        # pprint(pflo_deck)
 
         return {'Name':dfu_oi[1],'PFLOTRAN model':dfu_oi[2]}
 
