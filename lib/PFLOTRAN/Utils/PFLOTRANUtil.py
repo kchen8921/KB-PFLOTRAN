@@ -216,7 +216,7 @@ class PFLOTRANUploadUtil:
             }]
         }
         dfu_oi = self.dfu.save_objects(save_object_params)[0]
-        print("dfu_oi:",dfu_oi[2]['pflotran_deck'])
+        print("dfu_oi:",dfu_oi[2][0],dfu_oi[2][1],dfu_oi[2][2])
         return {'Name':dfu_oi[1],'PFLOTRAN model':dfu_oi[2]}
 
     def _generate_html_report(self):
