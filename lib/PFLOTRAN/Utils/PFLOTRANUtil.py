@@ -217,9 +217,12 @@ class PFLOTRANUploadUtil:
         }
         dfu_oi = self.dfu.save_objects(save_object_params)[0]
 
-        pflo_obj = self.dfu.get_objects({'object_refs': [dfu_oi]})['data']
+        pflo_data = self.dfu.get_objects({'object_refs': [dfu_oi]})['data'][0]
+        pflo_obj = pflo_data['data']
+        pflo_mega = pflo_data['info']
+        pprint(pflo_data)
         pprint(pflo_obj)
-        print("dfu_oi:",dfu_oi[0],dfu_oi[1],dfu_oi[2],dfu_oi[3],dfu_oi[4],dfu_oi[5])
+        pprint(pflo_mega)
         return {'Name':dfu_oi[1],'PFLOTRAN model':dfu_oi[2]}
 
     def _generate_html_report(self):
