@@ -213,8 +213,8 @@ class PFLOTRANUploadUtil:
         else:
             print ("nrz_exp.in not exist")
 
-        deck_handle = self.dfu.file_to_shock({'file_path': data_folder, 'make_handle': True})['handle']['hid']
-        hdf_handle = self.dfu.file_to_shock({'file_path': data_folder, 'make_handle': True})['handle']['hid']
+        deck_handle = self.dfu.file_to_shock({'file_path': staging_path+pflo_deck, 'make_handle': True})['handle']['hid']
+        hdf_handle = self.dfu.file_to_shock({'file_path': staging_path+pflo_deck, 'make_handle': True})['handle']['hid']
         print("deck_handle:",deck_handle)
         print("hdf_handle:",hdf_handle)
         db = {"name": "PFLOTRAN_kb", "description": "test","pflotran_deck": deck_handle, "hdf_parameters": hdf_handle}
