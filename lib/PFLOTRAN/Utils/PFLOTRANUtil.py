@@ -170,9 +170,9 @@ class PFLOTRANUploadUtil:
         data_folder = os.path.join(self.data_folder, "batch.in")
         print('data_folder',data_folder)
         if os.path.isfile(data_folder):
-            print ("File exist")
+            print ("batch.in exist")
         else:
-            print ("File not exist")
+            print ("batch.in not exist")
 
         media = self.params['input_Media_model']
         fba = self.params['input_FBA_model']
@@ -207,8 +207,14 @@ class PFLOTRANUploadUtil:
         self.dfu = DataFileUtil(self.callback_url)
         staging_path = '/staging/'
         pflo_deck = 'nrz_exp.in'
-        deck_handle = self.dfu.file_to_shock({'file_path': staging_path+pflo_deck, 'make_handle': True})['handle']['hid']
-        hdf_handle = self.dfu.file_to_shock({'file_path': staging_path+pflo_deck, 'make_handle': True})['handle']['hid']
+        print('staging_folder',staging_path+pflo_deck)
+        if os.path.isfile(staging_path+pflo_deck):
+            print ("nrz_exp.in exist")
+        else:
+            print ("nrz_exp.in not exist")
+
+        deck_handle = self.dfu.file_to_shock({'file_path': data_folder, 'make_handle': True})['handle']['hid']
+        hdf_handle = self.dfu.file_to_shock({'file_path': data_folder, 'make_handle': True})['handle']['hid']
         print("deck_handle:",deck_handle)
         print("hdf_handle:",hdf_handle)
         db = {"name": "PFLOTRAN_kb", "description": "test","pflotran_deck": deck_handle, "hdf_parameters": hdf_handle}
