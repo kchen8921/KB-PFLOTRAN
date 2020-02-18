@@ -169,6 +169,11 @@ class PFLOTRANUploadUtil:
         print('params',self.params)
         data_folder = os.path.join(self.data_folder, "batch.in")
         print('data_folder',data_folder)
+        if os.path.isfile(data_folder):
+            print ("File exist")
+        else:
+            print ("File not exist")
+
         media = self.params['input_Media_model']
         fba = self.params['input_FBA_model']
         # reaction = self.params['input_deck_file']
