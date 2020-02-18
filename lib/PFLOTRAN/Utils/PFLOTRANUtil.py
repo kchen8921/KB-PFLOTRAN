@@ -224,10 +224,9 @@ class PFLOTRANUploadUtil:
         pflo_data = self.dfu.get_objects({'object_refs': ['38181/test_so']})['data'][0]
         
         pflo_obj = pflo_data['data']
-        pflo_mega = pflo_data['info']
         pprint(pflo_data)
         pprint(pflo_obj)
-        pprint(pflo_mega)
+        
         return {'Name':dfu_oi[1],'PFLOTRAN model':dfu_oi[2]}
 
     def _generate_html_report(self):
