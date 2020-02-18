@@ -217,7 +217,7 @@ class PFLOTRANUploadUtil:
         }
         dfu_oi = self.dfu.save_objects(save_object_params)[0]
 
-        pflo_deck = self.dfu.get_objects({'object_refs': [dfu_oi]})['data'][0]
+        pflo_deck = self.dfu.get_objects({'object_refs': [dfu_oi]})['data'][0]['data']
         pprint(pflo_deck)
         print("dfu_oi:",dfu_oi[0],dfu_oi[1],dfu_oi[2],dfu_oi[3],dfu_oi[4],dfu_oi[5])
         return {'Name':dfu_oi[1],'PFLOTRAN model':dfu_oi[2]}
