@@ -215,9 +215,11 @@ class PFLOTRANUploadUtil:
                 'name': 'test_so'
             }]
         }
+        # save_objects return a list of objects,[0] indicates the first one
         dfu_oi = self.dfu.save_objects(save_object_params)[0]
-        pprint(self.dfu.save_objects(save_object_params))
-        pprint(dfu_oi)
+
+        pprint('save_objects dfu_oi:',dfu_oi)
+        pprint('get_objects dfu_oi:',self.dfu.get_objects({'object_refs': [dfu_oi]}))
         pflo_data = self.dfu.get_objects({'object_refs': [dfu_oi]})['data'][0]
         pflo_obj = pflo_data['data']
         pflo_mega = pflo_data['info']
