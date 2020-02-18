@@ -216,6 +216,7 @@ class PFLOTRANUploadUtil:
             }]
         }
         dfu_oi = self.dfu.save_objects(save_object_params)[0]
+        pprint(self.dfu.save_objects(save_object_params))
         pprint(dfu_oi)
         pflo_data = self.dfu.get_objects({'object_refs': [dfu_oi]})['data'][0]
         pflo_obj = pflo_data['data']
