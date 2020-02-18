@@ -200,8 +200,8 @@ class PFLOTRANUploadUtil:
         print("shared_folder:",       os.listdir(shared_folder))
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.dfu = DataFileUtil(self.callback_url)
-        deck_handle = self.dfu.file_to_shock({'file_path': self.data_folder, 'make_handle': True})['handle']['hid']
-        hdf_handle = self.dfu.file_to_shock({'file_path': self.data_folder, 'make_handle': True})['handle']['hid']
+        deck_handle = self.dfu.file_to_shock({'file_path': data_folder, 'make_handle': True})['handle']['hid']
+        hdf_handle = self.dfu.file_to_shock({'file_path': data_folder, 'make_handle': True})['handle']['hid']
         print("deck_handle:",deck_handle)
         print("hdf_handle:",hdf_handle)
         db = {"name": "PFLOTRAN_kb", "description": "test","pflotran_deck": deck_handle, "hdf_parameters": hdf_handle}
