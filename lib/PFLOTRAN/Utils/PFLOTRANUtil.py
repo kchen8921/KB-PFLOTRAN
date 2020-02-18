@@ -218,15 +218,13 @@ class PFLOTRANUploadUtil:
         # save_objects return a list of objects,[0] indicates the first one
         dfu_oi = self.dfu.save_objects(save_object_params)[0]
 
-        pprint(dfu_oi)
         pprint(self.dfu.get_objects({'object_refs': ['38181/test_so']}))
-        # pflo_data = self.dfu.get_objects({'object_refs': [dfu_oi]})['data'][0]
         pflo_data = self.dfu.get_objects({'object_refs': ['38181/test_so']})['data'][0]
         
         pflo_obj = pflo_data['data']
-        pprint(pflo_data)
-        pprint(pflo_obj)
-        
+        pflo_deck = pflo_obj['pflotran_deck']
+        pprint(pflo_deck)
+
         return {'Name':dfu_oi[1],'PFLOTRAN model':dfu_oi[2]}
 
     def _generate_html_report(self):
