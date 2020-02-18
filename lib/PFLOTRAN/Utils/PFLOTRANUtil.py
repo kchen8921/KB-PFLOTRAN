@@ -184,10 +184,10 @@ class PFLOTRANUploadUtil:
         # reaction_data = self.dfu.get_objects({'object_refs': [reaction]})['data'][0]
         # reaction_obj = reaction_data['data']
         # reaction_meta = reaction_data['info'][10]
-        pprint(media_meta)
-        pprint(media_obj)
-        pprint(fba_meta)
-        pprint(fba_obj)
+        # pprint(media_meta)
+        # pprint(media_obj)
+        # pprint(fba_meta)
+        # pprint(fba_obj)
         # return PflotranModel (link to pflotran_deck: https://appdev.kbase.us/#spec/module/KBaseReactiveTransport) 
         
         pf_fp = f"{shared_folder}/pflotran_deck"
@@ -217,8 +217,8 @@ class PFLOTRANUploadUtil:
         }
         dfu_oi = self.dfu.save_objects(save_object_params)[0]
 
-        # pflo_deck = self.dfu.get_objects({'object_refs': dfu_oi})['data']
-        pprint(dfu_oi)
+        pflo_obj = self.dfu.get_objects({'object_refs': [dfu_oi]})['data']
+        pprint(pflo_obj)
         print("dfu_oi:",dfu_oi[0],dfu_oi[1],dfu_oi[2],dfu_oi[3],dfu_oi[4],dfu_oi[5])
         return {'Name':dfu_oi[1],'PFLOTRAN model':dfu_oi[2]}
 
