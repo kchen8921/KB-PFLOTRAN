@@ -219,8 +219,10 @@ class PFLOTRANUploadUtil:
         dfu_oi = self.dfu.save_objects(save_object_params)[0]
 
         pprint(dfu_oi)
-        pprint(self.dfu.get_objects({'object_refs': [dfu_oi]}))
-        pflo_data = self.dfu.get_objects({'object_refs': [dfu_oi]})['data'][0]
+        pprint(self.dfu.get_objects({'object_refs': self.params['workspace_id']+'/test_so'}))
+        # pflo_data = self.dfu.get_objects({'object_refs': [dfu_oi]})['data'][0]
+        pflo_data = self.dfu.get_objects({'object_refs': self.params['workspace_id']+'/test_so'})['data'][0]
+        
         pflo_obj = pflo_data['data']
         pflo_mega = pflo_data['info']
         pprint(pflo_data)
