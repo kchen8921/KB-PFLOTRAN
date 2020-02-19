@@ -90,9 +90,6 @@
          "optional" : true,
          "allow_multiple" : false,
          "text_options" : {
-            "valid_ws_types" : [
-            "KBaseReactiveTransport.PflotranModel"
-            ],
             "is_output_name": true
             }
       }
@@ -131,7 +128,7 @@
             },
             {
                "input_parameter" : "PFLOTRAN_obj",
-               "target_property" : "PFLOTRAN_obj",
+               "target_property" : "PFLOTRAN_obj"
             }
          ],
          "output_mapping" : [
