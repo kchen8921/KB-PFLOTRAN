@@ -247,7 +247,7 @@ class PFLOTRANUploadUtil:
             'objects': [{
                 'type': 'KBaseReactiveTransport.PflotranModel',
                 'data': db,
-                'name': 'test1'
+                'name': self.params['PFLOTRAN_obj']
             }]
         }
         # save_objects return a list of objects,[0] indicates the first one
