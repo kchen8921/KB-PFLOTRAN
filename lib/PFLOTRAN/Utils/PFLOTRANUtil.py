@@ -27,12 +27,13 @@ class PFLOTRANRunUtil:
         print('params:',self.params)
         shared_folder = self.params['shared_folder']
         print('shared_folder:',shared_folder)
+        pprint(os.listdir(shared_folder))
         scratch_folder = os.path.join(shared_folder,"scratch")
         print('scratch_folder:',scratch_folder)
 
         input_deck = os.path.join(scratch_folder,'batch.in')
         print('input_deck:',input_deck)
-        pprint(os.listdir(scratch_folder))
+        
         if os.path.isfile(input_deck):
             print ("Input deck exist")
         else:
@@ -199,16 +200,6 @@ class PFLOTRANUploadUtil:
             copyfile(data_file,scratch_folder)
 
         pprint(os.listdir(data_folder))
-        pprint(data_folder+'batch.in')
-        if os.path.isfile(data_folder+'batch.in'):
-            print("batch.in exist in data folder")
-        else:
-            print("batch.in not exist in data folder")
-
-        if os.path.isfile(scratch_folder+'batch.in'):
-            print("batch.in exist in scrach folder")
-        else:
-            print("batch.in not exist in scratch folder")
         # print("Contents in scratch folder:",os.listdir(scratch_folder+'/'))
 
 
