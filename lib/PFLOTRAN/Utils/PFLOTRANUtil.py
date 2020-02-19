@@ -6,6 +6,7 @@ import uuid
 from installed_clients.KBaseReportClient import KBaseReport
 from installed_clients.DataFileUtilClient import DataFileUtil
 from pprint import pprint
+from shutil import copyfile
 
 class PFLOTRANUtil:
     PREPDE_TOOLKIT_PATH = '/kb/module/lib/PFLOTRAN/Utils'
@@ -165,14 +166,19 @@ class PFLOTRANUploadUtil:
         self.data_folder = os.path.abspath('./data/')
 
     def run_uploader(self):
+        print('params:',self.params)
         shared_folder = self.params['shared_folder']
-        print('params',self.params)
-        data_folder = os.path.join(self.data_folder, "batch.in")
-        print('data_folder',data_folder)
-        if os.path.isfile(data_folder):
-            print ("batch.in exist")
-        else:
-            print ("batch.in not exist")
+        print('shared_folder:',shared_folder)
+        data_folder = self.data_folder
+        print('data_folder:',data_folder)
+        staging_folder = "/staging/"
+        print('staging_folder:',staging_folder)
+        simu_type = self.params['input_deck_type']
+        print('simulation_type:',simu_type)
+
+        if simu_type == 'batch':
+            batch_file = os.path.join(data_folder, "batch.in")
+            copyfile(batch_file,staging_folder)
 
         media = self.params['input_Media_model']
         fba = self.params['input_FBA_model']
@@ -205,16 +211,14 @@ class PFLOTRANUploadUtil:
         print("shared_folder:",       os.listdir(shared_folder))
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.dfu = DataFileUtil(self.callback_url)
-        staging_path = '/staging/'
-        pflo_deck = 'nrz_exp.in'
-        print('staging_folder',staging_path+pflo_deck)
-        if os.path.isfile(staging_path+pflo_deck):
-            print ("nrz_exp.in exist")
-        else:
-            print ("nrz_exp.in not exist")
 
-        deck_handle = self.dfu.file_to_shock({'file_path': staging_path+pflo_deck, 'make_handle': True})['handle']['hid']
-        hdf_handle = self.dfu.file_to_shock({'file_path': staging_path+pflo_deck, 'make_handle': True})['handle']['hid']
+        if simu_type == 'batch':
+            pflo_deck = batch_file
+        else:
+            pflo_deck = os.path.join(staging_folder,'nrz_exp.in')
+
+        deck_handle = self.dfu.file_to_shock({'file_path': pflo_deck, 'make_handle': True})['handle']['hid']
+        hdf_handle = self.dfu.file_to_shock({'file_path': pflo_deck, 'make_handle': True})['handle']['hid']
         print("deck_handle:",deck_handle)
         print("hdf_handle:",hdf_handle)
         db = {"name": "PFLOTRAN_kb", "description": "test","pflotran_deck": deck_handle, "hdf_parameters": hdf_handle}
