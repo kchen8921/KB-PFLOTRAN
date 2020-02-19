@@ -215,10 +215,9 @@ class PFLOTRANUploadUtil:
         self.dfu = DataFileUtil(self.callback_url)
 
         if simu_type == 'batch':
-            scratch_file = os.path.join(scratch_folder, "batch.in")
-            pflo_deck = scratch_file
+            pflo_deck = scratch_folder
         else:
-            pflo_deck = os.path.join(staging_folder,'nrz_exp.in')
+            pflo_deck = staging_folder
 
         deck_handle = self.dfu.file_to_shock({'file_path': pflo_deck, 'make_handle': True})['handle']['hid']
         hdf_handle = self.dfu.file_to_shock({'file_path': pflo_deck, 'make_handle': True})['handle']['hid']
