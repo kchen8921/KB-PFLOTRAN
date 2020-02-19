@@ -180,8 +180,7 @@ class PFLOTRANUploadUtil:
 
         if simu_type == 'batch':
             data_file = os.path.join(data_folder, "batch.in")
-            scratch_file = os.path.join(scratch_folder, "batch.in")
-            copyfile(data_file,scratch_file)
+            copyfile(data_file,scratch_folder)
 
         media = self.params['input_Media_model']
         fba = self.params['input_FBA_model']
@@ -216,6 +215,7 @@ class PFLOTRANUploadUtil:
         self.dfu = DataFileUtil(self.callback_url)
 
         if simu_type == 'batch':
+            scratch_file = os.path.join(scratch_folder, "batch.in")
             pflo_deck = scratch_file
         else:
             pflo_deck = os.path.join(staging_folder,'nrz_exp.in')
