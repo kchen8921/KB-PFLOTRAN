@@ -25,6 +25,7 @@ class PFLOTRANRunUtil:
 
     def run_pflotran(self):
         shared_folder = self.params['shared_folder']
+        print('shared_folder:',shared_folder)
         # Check PFLOTRAN input deck
 # <<<<<<< HEAD
         pprint(self.params)
