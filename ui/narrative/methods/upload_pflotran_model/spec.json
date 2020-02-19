@@ -132,8 +132,8 @@
             },
             {
                "input_parameter" : "PFLOTRAN_obj",
-               "target_property" : "PFLOTRAN_obj",
-               "target_type_transform": "resolved-ref"
+               "target_property" : "PFLOTRAN_obj"
+               // "target_type_transform": "resolved-ref"
             }
          ],
          "output_mapping" : [
