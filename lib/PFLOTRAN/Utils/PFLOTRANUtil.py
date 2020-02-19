@@ -197,6 +197,11 @@ class PFLOTRANUploadUtil:
             print('data_file:',data_file)
             copyfile(data_file,scratch_folder)
 
+        if os.path.isfile(data_folder+'batch.in'):
+            print("batch.in exist in data folder")
+        else:
+            print("batch.in not exist in data folder")
+
         if os.path.isfile(scratch_folder+'batch.in'):
             print("batch.in exist in scrach folder")
         else:
