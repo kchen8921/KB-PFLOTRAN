@@ -169,6 +169,8 @@ class PFLOTRANUploadUtil:
         print('params:',self.params)
         shared_folder = self.params['shared_folder']
         print('shared_folder:',shared_folder)
+        scratch_folder = os.path.join(shared_folder,"scratch")
+        print('scratch_folder:',scratch_folder)
         data_folder = self.data_folder
         print('data_folder:',data_folder)
         staging_folder = "/staging/"
@@ -178,8 +180,8 @@ class PFLOTRANUploadUtil:
 
         if simu_type == 'batch':
             data_file = os.path.join(data_folder, "batch.in")
-            staging_file = os.path.join(staging_folder, "batch.in")
-            copyfile(data_file,staging_file)
+            scratch_file = os.path.join(scratch_folder, "batch.in")
+            copyfile(data_file,scratch_file)
 
         media = self.params['input_Media_model']
         fba = self.params['input_FBA_model']
@@ -214,7 +216,7 @@ class PFLOTRANUploadUtil:
         self.dfu = DataFileUtil(self.callback_url)
 
         if simu_type == 'batch':
-            pflo_deck = staging_file
+            pflo_deck = scratch_file
         else:
             pflo_deck = os.path.join(staging_folder,'nrz_exp.in')
 
