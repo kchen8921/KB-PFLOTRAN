@@ -74,6 +74,8 @@ parameters :
             Output name for PFLOTRAN model object
         short-hint : |
             Enter a name for the KBaseReactiveTransport.PflotranModel
+        placeholder : |
+            pflotran_obj
     
 
 icon: 

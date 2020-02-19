@@ -242,12 +242,13 @@ class PFLOTRANUploadUtil:
         db = {"name": "PFLOTRAN_kb", "description": "test","pflotran_deck": deck_handle, "hdf_parameters": hdf_handle}
         #CHANGE THIS!
         ws_id = 38181   
+        name = self.params.get("PFLOTRAN_obj", "unamed_plfotran")
         save_object_params = {
             'id': ws_id,
             'objects': [{
                 'type': 'KBaseReactiveTransport.PflotranModel',
                 'data': db,
-                'name': self.params['PFLOTRAN_obj']
+                'name': name
             }]
         }
         # save_objects return a list of objects,[0] indicates the first one
