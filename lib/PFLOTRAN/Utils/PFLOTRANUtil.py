@@ -30,6 +30,7 @@ class PFLOTRANRunUtil:
         pprint(os.listdir(shared_folder))
         scratch_folder = os.path.join(shared_folder,"scratch")
         print('scratch_folder:',scratch_folder)
+        pprint(os.listdir(scratch_folder))
 
         input_deck = os.path.join(scratch_folder,'batch.in')
         print('input_deck:',input_deck)
