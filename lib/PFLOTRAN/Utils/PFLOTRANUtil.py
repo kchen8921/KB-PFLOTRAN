@@ -183,10 +183,10 @@ class PFLOTRANUploadUtil:
             print('data_file:',data_file)
             copyfile(data_file,scratch_folder)
         else:
-            data_file = self.params['staging_custom_input_deck']
+            data_file = os.path.join(staging_folder,self.params['staging_custom_input_deck'])
             print('data_file:',data_file)
             copyfile(data_file,scratch_folder)
-            
+
         # print("Contents in scratch folder:",os.listdir(scratch_folder+'/'))
 
 
