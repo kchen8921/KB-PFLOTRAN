@@ -27,11 +27,11 @@ class PFLOTRANRunUtil:
         shared_folder = self.params['shared_folder']
         # Check PFLOTRAN input deck
 # <<<<<<< HEAD
-#         pprint(self.params)
-#         pflotran_model = self.params['PflotranModel_id']
-#         pflotran_model_data = self.dfu.get_objects({'object_refs': [pflotran_model]})['data'][0]
-#         pflotran_model_data_obj = pflotran_model_data['data']
-#         pflotran_model_data_meta = pflotran_model_data['info'][10]
+        pprint(self.params)
+        pflotran_model = self.params['PflotranModel_id']
+        pflotran_model_data = self.dfu.get_objects({'object_refs': [pflotran_model]})['data'][0]
+        pflotran_model_data_obj = pflotran_model_data['data']
+        pflotran_model_data_meta = pflotran_model_data['info'][10]
 
 #         hdf5_file = pflotran_model['hdf5_parameters']
 #         input_deck = pflotran_model['input_deck']
