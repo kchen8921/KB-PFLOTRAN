@@ -180,7 +180,14 @@ class PFLOTRANUploadUtil:
 
         if simu_type == 'batch':
             data_file = os.path.join(data_folder, "batch.in")
+            print('data_file:',data_file)
             copyfile(data_file,scratch_folder)
+        else:
+            data_file = self.params['staging_custom_input_deck']
+            print('data_file:',data_file)
+            copyfile(data_file,scratch_folder)
+        print("Contents in scratch folder:",os.listdir(scratch_folder))
+
 
         media = self.params['input_Media_model']
         fba = self.params['input_FBA_model']
@@ -210,17 +217,11 @@ class PFLOTRANUploadUtil:
         # with open(hdf_fp, 'w') as f:
         #     f.write("{}\n".format(data_folder))
 
-        print("shared_folder:",       os.listdir(shared_folder))
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.dfu = DataFileUtil(self.callback_url)
 
-        if simu_type == 'batch':
-            pflo_deck = scratch_folder
-        else:
-            pflo_deck = staging_folder
-
-        deck_handle = self.dfu.file_to_shock({'file_path': pflo_deck, 'make_handle': True})['handle']['hid']
-        hdf_handle = self.dfu.file_to_shock({'file_path': pflo_deck, 'make_handle': True})['handle']['hid']
+        deck_handle = self.dfu.file_to_shock({'file_path': scratch_folder, 'make_handle': True})['handle']['hid']
+        hdf_handle = self.dfu.file_to_shock({'file_path': scratch_folder, 'make_handle': True})['handle']['hid']
         print("deck_handle:",deck_handle)
         print("hdf_handle:",hdf_handle)
         db = {"name": "PFLOTRAN_kb", "description": "test","pflotran_deck": deck_handle, "hdf_parameters": hdf_handle}
