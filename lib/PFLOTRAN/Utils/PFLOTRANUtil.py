@@ -32,6 +32,7 @@ class PFLOTRANRunUtil:
 
         input_deck = os.path.join(scratch_folder,'batch.in')
         print('input_deck:',input_deck)
+        pprint(os.listdir(scratch_folder))
         if os.path.isfile(input_deck):
             print ("Input deck exist")
         else:
@@ -198,6 +199,7 @@ class PFLOTRANUploadUtil:
             copyfile(data_file,scratch_folder)
 
         pprint(os.listdir(data_folder))
+        pprint(data_folder+'batch.in')
         if os.path.isfile(data_folder+'batch.in'):
             print("batch.in exist in data folder")
         else:
