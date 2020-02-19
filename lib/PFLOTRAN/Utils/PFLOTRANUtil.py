@@ -167,6 +167,7 @@ class PFLOTRANUploadUtil:
 
     def run_uploader(self):
         print('params:',self.params)
+        print('Pflotran_obj:',self.params['PFLOTRAN_obj'])
         shared_folder = self.params['shared_folder']
         print('shared_folder:',shared_folder)
         scratch_folder = os.path.join(shared_folder,"scratch")

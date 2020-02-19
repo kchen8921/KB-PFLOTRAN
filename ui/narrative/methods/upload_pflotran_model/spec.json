@@ -85,7 +85,7 @@
       },
       {
          "id" : "PFLOTRAN_obj",
-         "default_values" : [],
+         "default_values" : ["pflotran"],
          "advanced" : false,
          "field_type" : "text",
          "optional" : true,
