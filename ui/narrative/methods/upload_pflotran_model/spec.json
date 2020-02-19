@@ -84,14 +84,17 @@
          "allow_multiple" : false
       },{
          "id" : "PFLOTRAN_obj",
-         "default_values" : [ ""],
+         "default_values" : [ "pflotran"],
          "advanced" : false,
          "field_type" : "text",
          "optional" : true,
          "allow_multiple" : false,
          "text_options" : {
+            "valid_ws_types" : [
+            "KBaseReactiveTransport.PflotranModel"
+            ],
             "is_output_name": true
-         }
+            }
       }
    ], 
    "behavior" : {
@@ -128,7 +131,8 @@
             },
             {
                "input_parameter" : "PFLOTRAN_obj",
-               "target_property" : "PFLOTRAN_obj"
+               "target_property" : "PFLOTRAN_obj",
+               "target_type_transform": "resolved-ref"
             }
          ],
          "output_mapping" : [
