@@ -91,9 +91,9 @@
          "optional" : true,
          "allow_multiple" : false,
          "text_options" : {
-            "valid_ws_types" : [
-               "KBaseReactiveTransport.PflotranModel"
-            ],
+            // "valid_ws_types" : [
+            //    "KBaseReactiveTransport.PflotranModel"
+            // ],
             "is_output_name": true
          }
       }
