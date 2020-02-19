@@ -34,11 +34,8 @@ class PFLOTRANRunUtil:
         pflotran_model_data_obj = pflotran_model_data['data']
         pflotran_model_data_meta = pflotran_model_data['info'][10]
 
-        hdf5_file = pflotran_model['hdf5_parameters']
-        input_deck = pflotran_model['input_deck']
         pprint(pflotran_model_data_obj)
         pprint(pflotran_model_data_meta)
-        pprint(input_deck)
 # =======
 #         # pflotran_model = self.params['input_model']
 #         # hdf5_file = pflotran_model['hdf5_parameters']
