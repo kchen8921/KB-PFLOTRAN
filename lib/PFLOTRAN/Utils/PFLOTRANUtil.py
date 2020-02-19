@@ -24,8 +24,19 @@ class PFLOTRANRunUtil:
         self.html_files = []
 
     def run_pflotran(self):
+        print('params:',self.params)
         shared_folder = self.params['shared_folder']
         print('shared_folder:',shared_folder)
+        scratch_folder = os.path.join(shared_folder,"scratch")
+        print('scratch_folder:',scratch_folder)
+
+        input_deck = os.path.join(scratch_folder,'batch.in')
+        print('input_deck:',input_deck)
+        if os.path.isfile(input_deck):
+            print ("Input deck exist")
+        else:
+            print ("Input deck not exist")
+            
         # Check PFLOTRAN input deck
 # <<<<<<< HEAD
         pprint(self.params)
