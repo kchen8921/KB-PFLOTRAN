@@ -127,8 +127,8 @@
                "target_property" : "staging_custom_hdf5_parameters"
             },
             {
-               "input_parameter" : "PFLOTRAN_obj",
-               "target_property" : "PFLOTRAN_obj"
+               "input_parameter" : "pflotran_obj_name",
+               "target_property" : "pflotran_obj_name"
             }
          ],
          "output_mapping" : [
