@@ -83,7 +83,7 @@
          "optional" : true,
          "allow_multiple" : false
       },{
-         "id" : "pflotran_obj_name",
+         "id" : "PFLOTRAN_obj",
          "default_values" : [ "pflotran"],
          "advanced" : false,
          "field_type" : "text",
@@ -127,8 +127,8 @@
                "target_property" : "staging_custom_hdf5_parameters"
             },
             {
-               "input_parameter" : "pflotran_obj_name",
-               "target_property" : "pflotran_obj_name"
+               "input_parameter" : "PFLOTRAN_obj",
+               "target_property" : "PFLOTRAN_obj"
             }
          ],
          "output_mapping" : [

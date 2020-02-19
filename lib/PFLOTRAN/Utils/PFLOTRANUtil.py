@@ -167,7 +167,7 @@ class PFLOTRANUploadUtil:
 
     def run_uploader(self):
         print('params:',self.params)
-        print('pflotran_obj_name:',self.params['pflotran_obj_name'])
+        print('PFLOTRAN_obj:',self.params['PFLOTRAN_obj'])
         shared_folder = self.params['shared_folder']
         print('shared_folder:',shared_folder)
         scratch_folder = os.path.join(shared_folder,"scratch")
@@ -234,7 +234,7 @@ class PFLOTRANUploadUtil:
             'objects': [{
                 'type': 'KBaseReactiveTransport.PflotranModel',
                 'data': db,
-                'name': self.params['pflotran_obj_name']
+                'name': self.params['PFLOTRAN_obj']
             }]
         }
         # save_objects return a list of objects,[0] indicates the first one

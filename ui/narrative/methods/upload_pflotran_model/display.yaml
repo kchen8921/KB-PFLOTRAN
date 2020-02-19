@@ -69,7 +69,7 @@ parameters :
         short-hint : |
             Select hdf5 file for PFLOTRAN input deck for custom reaction from your staging area
     
-    pflotran_obj_name :
+    PFLOTRAN_obj :
         ui-name : |
             Output name for PFLOTRAN model object
         short-hint : |
