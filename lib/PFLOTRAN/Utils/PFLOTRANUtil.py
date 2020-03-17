@@ -41,13 +41,20 @@ class PFLOTRANRunUtil:
 
         # copy pflotran input deck for test
         input_deck_src = os.path.join(self.data_folder,'batch.in')
+        database_src = os.path.join(self.data_folder,'database.dat')
         input_deck_des = os.path.join(scratch_folder,'batch.in')
+        database_des = os.path.join(scratch_folder,'database.dat')
         print('input_deck_des:',input_deck_des)
-        copy(input_deck_src,scratch_folder)        
+        copy(input_deck_src,scratch_folder)  
+        copy(database_src,scratch_folder)      
         if os.path.isfile(input_deck_des):
             print ("Input deck exist")
         else:
             print ("Input deck not exist")
+        if os.path.isfile(database_des):
+            print ("Database exist")
+        else:
+            print ("Database exist")
 
         # running pflotran
         exepath = '/bin/pflotran/src/pflotran/pflotran'
