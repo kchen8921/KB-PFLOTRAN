@@ -8,6 +8,8 @@ from installed_clients.DataFileUtilClient import DataFileUtil
 from pprint import pprint
 from shutil import copy
 import subprocess
+import matplotlib.pyplot as plt
+import numpy as np
 
 class PFLOTRANUtil:
     PREPDE_TOOLKIT_PATH = '/kb/module/lib/PFLOTRAN/Utils'
@@ -29,11 +31,6 @@ class PFLOTRANRunUtil:
 
     def run_pflotran(self):
         print('params:',self.params)
-        # shared_folder = self.params['shared_folder']
-        # print('shared_folder:',shared_folder)
-        # pprint(os.listdir(shared_folder))
-        # # create scratch folder (/kb/module/work/tmp/scratch) for running pflotran
-        # scratch_folder = os.path.join(shared_folder,"scratch")
         try:
             os.mkdir(self.scratch_folder)
         except OSError:
@@ -74,6 +71,8 @@ class PFLOTRANRunUtil:
         else:
             print ("Fail to run PFLOTRAN")
 
+        self.plot_time_series(self,output_file)
+        
         # Check PFLOTRAN input deck
 # <<<<<<< HEAD
         pprint(self.params)
@@ -107,7 +106,66 @@ class PFLOTRANRunUtil:
         # Return the report
         return self._generate_html_report()
         
-    # def plot_pflotran_output(self):
+    def plot_time_series(self,h5_file):
+        var_name = ['Total_O2(aq) [M]','Total_CH2O(aq) [M]','Total_NO3- [M]']
+        obs_coord = [0.5,0.5,0.5]
+
+        file = h5py.File(h5_file,'r+')
+        time_str = [list(file.keys())[i] for i in range(len(list(file.keys()))) if list(file.keys())[i][0:4] == "Time"]
+        time_unit = time_str[0][-1]
+        time = sorted([float(time_str[i].split()[1]) for i in range(len(time_str))])
+        bound = []
+        bound.append(file['Coordinates']['X [m]'][0])
+        bound.append(file['Coordinates']['X [m]'][-1])
+        bound.append(file['Coordinates']['Y [m]'][0])
+        bound.append(file['Coordinates']['Y [m]'][-1])
+        bound.append(file['Coordinates']['Z [m]'][0])
+        bound.append(file['Coordinates']['Z [m]'][-1])
+        nxyz = []
+        nxyz.append(len(file['Coordinates']['X [m]'])-1)
+        nxyz.append(len(file['Coordinates']['Y [m]'])-1)
+        nxyz.append(len(file['Coordinates']['Z [m]'])-1)
+
+        x_coord = (np.linspace(bound[0],bound[1],nxyz[0]+1)[:-1]+np.linspace(bound[0],bound[1],nxyz[0]+1)[1:])/2
+        y_coord = (np.linspace(bound[2],bound[3],nxyz[1]+1)[:-1]+np.linspace(bound[2],bound[3],nxyz[1]+1)[1:])/2
+        z_coord = (np.linspace(bound[4],bound[5],nxyz[2]+1)[:-1]+np.linspace(bound[4],bound[5],nxyz[2]+1)[1:])/2
+        x_idx = np.argmin(np.absolute(x_coord-obs_coord[0]))
+        y_idx = np.argmin(np.absolute(y_coord-obs_coord[1]))
+        z_idx = np.argmin(np.absolute(z_coord-obs_coord[2]))
+        var_value = np.zeros((len(var_name),len(time)))
+        for i, itime in enumerate(time):
+            time_slice = "Time:"+str(" %12.5E" % itime)+str(" %s" % time_unit)
+        #     print(file[time_slice][var_name].keys())
+            for j in range(len(var_name)):
+                var_value[j,i] = file[time_slice][var_name[j]][x_idx][y_idx][z_idx]
+
+        fig = plt.figure(num=1,dpi=150)
+        legend = []
+        lines = []
+        for i in range(len(var_name)):
+            line = plt.plot(time,var_value[i,:])[0]
+            plt.ioff()
+            lines.append(line)
+            legend.append(var_name[i])
+            plt.ioff()
+
+        plt.xlabel("Time (%s)" %time_unit)
+        ylabel = 'Concentration [M]'
+        #     if 'Total' in var_name[0]:
+        #         ylabel = 'Concentration [M]'
+        #     else:
+        #         ylabel = var_name[0][var_name[0].index('_')+1:]
+        plt.ylabel(ylabel)
+        plt.legend(lines,legend,frameon=False)
+        figpath = os.path.join(self.scratch_folder,'time_series_plot.png')    
+        plt.savefig(figpath,dpi=150) 
+
+        if os.path.isfile(figpath):
+            print ("Successfully generated time series plot")
+        else:
+            print ("Fail to generate time series plot")
+
+        return
 
     def visualize_hdf_in_html(self):
         # Open the HDF5 file
