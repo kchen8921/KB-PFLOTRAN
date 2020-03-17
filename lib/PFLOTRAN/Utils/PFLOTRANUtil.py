@@ -190,7 +190,7 @@ class PFLOTRANRunUtil:
                 </body>
                 </html>
             """ % (figpath))
-            print(f.read())
+            print(f)
         report_shock_id = self.dfu.file_to_shock({'file_path': output_directory,
                                                   'pack': 'zip'})['shock_id']
 
