@@ -71,7 +71,8 @@ class PFLOTRANRunUtil:
         else:
             print ("Fail to run PFLOTRAN")
 
-        self.plot_time_series(self,output_file)
+        # generate plots in /kb/module/work/tmp/scratch/
+        self.plot_time_series(output_file)
         
         # Check PFLOTRAN input deck
 # <<<<<<< HEAD
