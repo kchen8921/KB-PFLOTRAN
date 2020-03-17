@@ -7,6 +7,7 @@ from installed_clients.KBaseReportClient import KBaseReport
 from installed_clients.DataFileUtilClient import DataFileUtil
 from pprint import pprint
 from shutil import copy
+import subprocess
 
 class PFLOTRANUtil:
     PREPDE_TOOLKIT_PATH = '/kb/module/lib/PFLOTRAN/Utils'
@@ -29,9 +30,8 @@ class PFLOTRANRunUtil:
         shared_folder = self.params['shared_folder']
         print('shared_folder:',shared_folder)
         pprint(os.listdir(shared_folder))
+        # create scratch folder (/kb/module/work/tmp/scratch) for running pflotran
         scratch_folder = os.path.join(shared_folder,"scratch")
-        # print('scratch_folder:',scratch_folder)
-        # pprint(os.listdir(scratch_folder))
         try:
             os.mkdir(scratch_folder)
         except OSError:
@@ -39,15 +39,26 @@ class PFLOTRANRunUtil:
         else:
             print ("Successfully created the directory %s " % scratch_folder)
 
+        # copy pflotran input deck for test
         input_deck_src = os.path.join(self.data_folder,'batch.in')
         input_deck_des = os.path.join(scratch_folder,'batch.in')
         print('input_deck_des:',input_deck_des)
-        copy(input_deck_src,scratch_folder)
-        
+        copy(input_deck_src,scratch_folder)        
         if os.path.isfile(input_deck_des):
             print ("Input deck exist")
         else:
             print ("Input deck not exist")
+
+        # running pflotran
+        exepath = '/bin/pflotran/src/pflotran/pflotran'
+        run_pflotran_cmd = exepath + ' -n 1 -pflotranin ' + input_deck_des
+        process = subprocess.Popen(run_pflotran_cmd.split(), stdout=subprocess.PIPE)
+        output, error = process.communicate()
+        output_file = os.path.join(scratch_folder,'batch.h5')
+        if os.path.isfile(output_file):
+            print ("Successfully run PFLOTRAN")
+        else:
+            print ("Fail to run PFLOTRAN")
 
         # Check PFLOTRAN input deck
 # <<<<<<< HEAD
