@@ -176,6 +176,7 @@ class PFLOTRANRunUtil:
         os.makedirs(output_directory)
         html_file = os.path.join(output_directory,'test.html')
         figpath = os.path.join(self.scratch_folder,'time_series_plot.png')
+        print("figpath:",figpath)
         with open(html_file, 'w') as f:
             f.write("""
                 <!DOCTYPE html>
