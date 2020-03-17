@@ -25,6 +25,7 @@ class PFLOTRANRunUtil:
 
     def run_pflotran(self):
         print('params:',self.params)
+        pprint('User dir:',os.listdir('~/'))
         shared_folder = self.params['shared_folder']
         print('shared_folder:',shared_folder)
         pprint(os.listdir(shared_folder))
