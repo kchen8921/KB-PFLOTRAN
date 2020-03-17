@@ -54,6 +54,7 @@ class PFLOTRANRunUtil:
         run_pflotran_cmd = exepath + ' -n 1 -pflotranin ' + input_deck_des
         process = subprocess.Popen(run_pflotran_cmd.split(), stdout=subprocess.PIPE)
         output, error = process.communicate()
+        print(process.returncode)
         output_file = os.path.join(scratch_folder,'batch.h5')
         if os.path.isfile(output_file):
             print ("Successfully run PFLOTRAN")
