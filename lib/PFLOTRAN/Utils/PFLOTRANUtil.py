@@ -184,6 +184,7 @@ class PFLOTRANRunUtil:
             print ("Time series plot does not exist")
 
         print("figpath:",figpath)
+        print("current wd:",os.getcwd())
         with open(html_file, 'w') as f:
             f.write("""
                 <!DOCTYPE html>
