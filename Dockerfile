@@ -34,8 +34,9 @@ RUN  git clone https://bitbucket.org/pflotran/pflotran
 WORKDIR /bin/pflotran/src/pflotran
 RUN  make pflotran
 
-# Install h5py
+# Install python package
 RUN pip install h5py
+RUN pip install matplotlib
 
 # -----------------------------------------
 
