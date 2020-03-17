@@ -185,11 +185,11 @@ class PFLOTRANRunUtil:
                 <h1>PFLOTRAN-KB</h1>
 
                 <p>Time series plot for batch reaction.</p>
-                <img src="%s" alt="Flowers in Chania">
+                <img src="%s" alt="Time series plot of batch reaction">
                 </body>
                 </html>
             """ % (figpath))
-
+        print(f.read())
         report_shock_id = self.dfu.file_to_shock({'file_path': output_directory,
                                                   'pack': 'zip'})['shock_id']
 
