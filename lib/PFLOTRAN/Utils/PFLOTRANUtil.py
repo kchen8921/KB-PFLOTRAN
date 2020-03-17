@@ -193,7 +193,10 @@ class PFLOTRANRunUtil:
                 </body>
                 </html>
             """ % (figpath))
+
+        with open(html_file, 'r') as f:
             print("html_file:",f.readlines())
+            
         report_shock_id = self.dfu.file_to_shock({'file_path': output_directory,
                                                   'pack': 'zip'})['shock_id']
 
