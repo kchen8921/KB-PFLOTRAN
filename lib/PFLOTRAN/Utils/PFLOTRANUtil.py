@@ -188,7 +188,7 @@ class PFLOTRANRunUtil:
                 <img src="%s" alt="Flowers in Chania">
                 </body>
                 </html>
-            """) % figpath
+            """ % (figpath))
 
         report_shock_id = self.dfu.file_to_shock({'file_path': output_directory,
                                                   'pack': 'zip'})['shock_id']
