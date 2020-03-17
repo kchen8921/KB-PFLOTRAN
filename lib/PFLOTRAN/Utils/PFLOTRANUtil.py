@@ -24,26 +24,28 @@ class PFLOTRANRunUtil:
         self.output_files = []
         self.html_files = []
         self.data_folder = os.path.abspath('./data/')
+        self.shared_folder = params['shared_folder']
+        self.scratch_folder = os.path.join(params['shared_folder'],"scratch")
 
     def run_pflotran(self):
         print('params:',self.params)
-        shared_folder = self.params['shared_folder']
-        print('shared_folder:',shared_folder)
-        pprint(os.listdir(shared_folder))
-        # create scratch folder (/kb/module/work/tmp/scratch) for running pflotran
-        scratch_folder = os.path.join(shared_folder,"scratch")
+        # shared_folder = self.params['shared_folder']
+        # print('shared_folder:',shared_folder)
+        # pprint(os.listdir(shared_folder))
+        # # create scratch folder (/kb/module/work/tmp/scratch) for running pflotran
+        # scratch_folder = os.path.join(shared_folder,"scratch")
         try:
-            os.mkdir(scratch_folder)
+            os.mkdir(self.scratch_folder)
         except OSError:
-            print ("Creation of the directory %s failed" % scratch_folder)
+            print ("Creation of the directory %s failed" % self.scratch_folder)
         else:
-            print ("Successfully created the directory %s " % scratch_folder)
+            print ("Successfully created the directory %s " % self.scratch_folder)
 
         # copy pflotran input deck for test
         input_deck_src = os.path.join(self.data_folder,'batch.in')
         database_src = os.path.join(self.data_folder,'database.dat')
-        input_deck_des = os.path.join(scratch_folder,'batch.in')
-        database_des = os.path.join(scratch_folder,'database.dat')
+        input_deck_des = os.path.join(self.scratch_folder,'batch.in')
+        database_des = os.path.join(self.scratch_folder,'database.dat')
         print('input_deck_des:',input_deck_des)
         copy(input_deck_src,scratch_folder)  
         copy(database_src,scratch_folder)      
@@ -63,10 +65,10 @@ class PFLOTRANRunUtil:
         output, error = process.communicate()
         print("process output:",output[-300:])
         print("process err:",error)
-        pprint(os.listdir(scratch_folder))
+        pprint(os.listdir(self.scratch_folder))
 
 
-        output_file = os.path.join(scratch_folder,'batch.h5')
+        output_file = os.path.join(self.scratch_folder,'batch.h5')
         if os.path.isfile(output_file):
             print ("Successfully run PFLOTRAN")
         else:
@@ -105,6 +107,8 @@ class PFLOTRANRunUtil:
         # Return the report
         return self._generate_html_report()
         
+    # def plot_pflotran_output(self):
+
     def visualize_hdf_in_html(self):
         # Open the HDF5 file
         # f = h5py.File(self.hdf_output_file, 'r')
