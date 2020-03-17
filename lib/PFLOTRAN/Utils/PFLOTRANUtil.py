@@ -22,6 +22,7 @@ class PFLOTRANRunUtil:
         self.dfu = DataFileUtil(self.callback_url)
         self.output_files = []
         self.html_files = []
+        self.data_folder = os.path.abspath('./data/')
 
     def run_pflotran(self):
         print('params:',self.params)
@@ -30,13 +31,21 @@ class PFLOTRANRunUtil:
         print('shared_folder:',shared_folder)
         pprint(os.listdir(shared_folder))
         scratch_folder = os.path.join(shared_folder,"scratch")
-        print('scratch_folder:',scratch_folder)
-        pprint(os.listdir(scratch_folder))
+        # print('scratch_folder:',scratch_folder)
+        # pprint(os.listdir(scratch_folder))
+        try:
+            os.mkdir(scratch_folder)
+        except OSError:
+            print ("Creation of the directory %s failed" % scratch_folder)
+        else:
+            print ("Successfully created the directory %s " % scratch_folder)
 
-        input_deck = os.path.join(scratch_folder,'batch.in')
-        print('input_deck:',input_deck)
+        input_deck_src = os.path.join(self.data_folder,'batch.in')
+        input_deck_des = os.path.join(scratch_folder,'batch.in')
+        print('input_deck_des:',input_deck_des)
+        copyfile(input_deck_src,scratch_folder)
         
-        if os.path.isfile(input_deck):
+        if os.path.isfile(input_deck_des):
             print ("Input deck exist")
         else:
             print ("Input deck not exist")
