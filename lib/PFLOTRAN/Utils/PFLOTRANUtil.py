@@ -47,8 +47,8 @@ class PFLOTRANRunUtil:
         input_deck_des = os.path.join(self.scratch_folder,'batch.in')
         database_des = os.path.join(self.scratch_folder,'database.dat')
         print('input_deck_des:',input_deck_des)
-        copy(input_deck_src,scratch_folder)  
-        copy(database_src,scratch_folder)      
+        copy(input_deck_src,self.scratch_folder)  
+        copy(database_src,self.scratch_folder)      
         if os.path.isfile(input_deck_des):
             print ("Input deck exist")
         else:
@@ -94,7 +94,7 @@ class PFLOTRANRunUtil:
 
 
         # Get the output file
-        self.hdf_output_file = os.path.join(shared_folder,'test.h5')
+        self.hdf_output_file = os.path.join(self.shared_folder,'test.h5')
         with h5py.File(self.hdf_output_file, 'w') as f:
             dset = f.create_dataset("mydataset", (100,), dtype='i')
         self.output_files.append(
