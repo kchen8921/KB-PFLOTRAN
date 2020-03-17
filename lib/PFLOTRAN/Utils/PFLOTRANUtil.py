@@ -178,6 +178,11 @@ class PFLOTRANRunUtil:
         print("output dir:", output_directory)
         html_file = os.path.join(output_directory,'test.html')
         figpath = os.path.join(self.scratch_folder,'time_series_plot.png')
+        if os.path.isfile(figpath):
+            print ("Time series plot exists")
+        else:
+            print ("Time series plot does not exist")
+
         print("figpath:",figpath)
         with open(html_file, 'w') as f:
             f.write("""
@@ -189,7 +194,7 @@ class PFLOTRANRunUtil:
 
                 <p>Visulize PFLOTRAN output</p>
                 <h2>Time series plot for batch reaction</h2>
-                <img src='{}' alt='Time series plot of batch reaction'>
+                <img src={} alt='Time series plot of batch reaction'>
                 </body>
                 </html>
             """.format(figpath))
