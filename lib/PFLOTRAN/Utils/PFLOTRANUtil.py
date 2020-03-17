@@ -175,6 +175,7 @@ class PFLOTRANRunUtil:
         output_directory = os.path.join(shared_folder, str(uuid.uuid4()))
         os.makedirs(output_directory)
         html_file = os.path.join(output_directory,'test.html')
+        figpath = os.path.join(self.scratch_folder,'time_series_plot.png')
         with open(html_file, 'w') as f:
             f.write("""
                 <!DOCTYPE html>
@@ -183,11 +184,11 @@ class PFLOTRANRunUtil:
 
                 <h1>PFLOTRAN-KB</h1>
 
-                <p>My first test.</p>
-
+                <p>Time series plot for batch reaction.</p>
+                <img src="%s" alt="Flowers in Chania">
                 </body>
                 </html>
-            """)
+            """) % figpath
 
         report_shock_id = self.dfu.file_to_shock({'file_path': output_directory,
                                                   'pack': 'zip'})['shock_id']
