@@ -171,9 +171,11 @@ class PFLOTRANRunUtil:
     def visualize_hdf_in_html(self):
         # Open the HDF5 file
         # f = h5py.File(self.hdf_output_file, 'r')
-        shared_folder = self.params['shared_folder']
-        output_directory = os.path.join(shared_folder, str(uuid.uuid4()))
+        # shared_folder = self.params['shared_folder']
+        # output_directory = os.path.join(shared_folder, str(uuid.uuid4()))
+        output_directory = os.path.join(self.shared_folder,'output') 
         os.makedirs(output_directory)
+        print("output dir:", output_directory)
         html_file = os.path.join(output_directory,'test.html')
         figpath = os.path.join(self.scratch_folder,'time_series_plot.png')
         print("figpath:",figpath)
@@ -191,7 +193,7 @@ class PFLOTRANRunUtil:
                 </body>
                 </html>
             """ % (figpath))
-            print("html_file:",f)
+            print("html_file:",f.readlines())
         report_shock_id = self.dfu.file_to_shock({'file_path': output_directory,
                                                   'pack': 'zip'})['shock_id']
 
