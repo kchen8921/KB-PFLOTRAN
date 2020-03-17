@@ -42,7 +42,7 @@ class PFLOTRANRunUtil:
         input_deck_src = os.path.join(self.data_folder,'batch.in')
         input_deck_des = os.path.join(scratch_folder,'batch.in')
         print('input_deck_des:',input_deck_des)
-        copyfile(input_deck_src,scratch_folder)
+        os.path.copy(input_deck_src,scratch_folder)
         
         if os.path.isfile(input_deck_des):
             print ("Input deck exist")
