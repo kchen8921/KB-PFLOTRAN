@@ -189,10 +189,10 @@ class PFLOTRANRunUtil:
 
                 <p>Visulize PFLOTRAN output</p>
                 <h2>Time series plot for batch reaction</h2>
-                <img src=%s alt="Time series plot of batch reaction">
+                <img src='{}' alt='Time series plot of batch reaction'>
                 </body>
                 </html>
-            """ % (figpath))
+            """.format(figpath))
 
         with open(html_file, 'r') as f:
             print("html_file:",f.readlines())
