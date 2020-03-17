@@ -177,7 +177,7 @@ class PFLOTRANRunUtil:
         os.makedirs(output_directory)
         print("output dir:", output_directory)
         html_file = os.path.join(output_directory,'test.html')
-        figpath = os.path.join(self.scratch_folder,'time_series_plot.png')
+        figpath = './work/tmp/scratch/time_series_plot.png'
         if os.path.isfile(figpath):
             print ("Time series plot exists")
         else:
