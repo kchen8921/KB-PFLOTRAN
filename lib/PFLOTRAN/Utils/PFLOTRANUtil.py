@@ -189,14 +189,14 @@ class PFLOTRANRunUtil:
 
                 <p>Visulize PFLOTRAN output</p>
                 <h2>Time series plot for batch reaction</h2>
-                <img src="%s" alt="Time series plot of batch reaction">
+                <img src=%s alt="Time series plot of batch reaction">
                 </body>
                 </html>
             """ % (figpath))
 
         with open(html_file, 'r') as f:
             print("html_file:",f.readlines())
-            
+
         report_shock_id = self.dfu.file_to_shock({'file_path': output_directory,
                                                   'pack': 'zip'})['shock_id']
 
