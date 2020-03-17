@@ -6,7 +6,7 @@ import uuid
 from installed_clients.KBaseReportClient import KBaseReport
 from installed_clients.DataFileUtilClient import DataFileUtil
 from pprint import pprint
-from shutil import copyfile
+from shutil import copy
 
 class PFLOTRANUtil:
     PREPDE_TOOLKIT_PATH = '/kb/module/lib/PFLOTRAN/Utils'
@@ -42,7 +42,7 @@ class PFLOTRANRunUtil:
         input_deck_src = os.path.join(self.data_folder,'batch.in')
         input_deck_des = os.path.join(scratch_folder,'batch.in')
         print('input_deck_des:',input_deck_des)
-        os.path.copy(input_deck_src,scratch_folder)
+        copy(input_deck_src,scratch_folder)
         
         if os.path.isfile(input_deck_des):
             print ("Input deck exist")
