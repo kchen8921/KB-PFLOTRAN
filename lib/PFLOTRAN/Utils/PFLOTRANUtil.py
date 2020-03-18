@@ -158,10 +158,11 @@ class PFLOTRANRunUtil:
         #         ylabel = var_name[0][var_name[0].index('_')+1:]
         plt.ylabel(ylabel)
         plt.legend(lines,legend,frameon=False)
-        figpath = os.path.join(self.scratch_folder,'time_series_plot.png')    
-        plt.savefig(figpath,dpi=150) 
+        fig_name = 'time_series_plot.png'
+        fig_path = os.path.join(self.scratch_folder,fig_name)    
+        plt.savefig(fig_path,dpi=150) 
 
-        if os.path.isfile(figpath):
+        if os.path.isfile(fig_path):
             print ("Successfully generated time series plot")
         else:
             print ("Fail to generate time series plot")
@@ -177,15 +178,16 @@ class PFLOTRANRunUtil:
         os.makedirs(output_directory)
         print("output dir:", output_directory)
         html_file = os.path.join(output_directory,'test.html')
-        figpath = '/kb/module/work/tmp/scratch/time_series_plot.png'
-        if os.path.isfile(figpath):
+        fig_name = 'time_series_plot.png'
+        fig_path = os.path.join(self.scratch_folder,fig_name)
+        if os.path.isfile(fig_path):
             print ("Time series plot exists")
         else:
             print ("Time series plot does not exist")
-        copy('/kb/module/data/1.png','/kb/module/work/tmp/output')
+        print("figpath:",fig_path)
 
-        print("figpath:",figpath)
-        print("current wd:",os.getcwd())
+        copy(fig_path,'/kb/module/work/tmp/output')
+
         with open(html_file, 'w') as f:
             f.write("""
                 <!DOCTYPE html>
@@ -196,10 +198,10 @@ class PFLOTRANRunUtil:
 
                 <p>Visulize PFLOTRAN output</p>
                 <h2>Time series plot for batch reaction</h2>
-                <img src="1.png" alt="Time series plot of batch reaction" height="42" width="42"></img>
+                <img src="{}" alt="Time series plot of batch reaction" height="42" width="42"></img>
                 </body>
                 </html>
-            """)
+            """.format(fig_name))
 
         with open(html_file, 'r') as f:
             print("html_file:",f.readlines())
