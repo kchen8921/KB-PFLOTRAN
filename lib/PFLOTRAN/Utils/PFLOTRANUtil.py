@@ -108,7 +108,7 @@ class PFLOTRANRunUtil:
         return self._generate_html_report()
         
     def plot_time_series(self,h5_file):
-        var_name = ['Total_O2(aq) [M]','Total_CH2O(aq) [M]','Total_NO3- [M]']
+        var_name = ['Total_C5H7O2N(aq) [M]','Total_O2(aq) [M]','Total_CH2O(aq) [M]','Total_NO3- [M]','Total_NO2- [M]','Total_NH4+ [M]','Total_N2(aq) [M]']
         obs_coord = [0.5,0.5,0.5]
 
         file = h5py.File(h5_file,'r+')
@@ -194,10 +194,9 @@ class PFLOTRANRunUtil:
                 <html>
                 <body>
 
-                <h1>PFLOTRAN-KB</h1>
+                <h1>PFLOTRAN-KBbase</h1>
 
                 <p>Visulize PFLOTRAN output</p>
-                <h2>Time series plot for batch reaction</h2>
                 <img src="{}" alt="Time series plot" height="360" width="480"></img>
                 </body>
                 </html>
