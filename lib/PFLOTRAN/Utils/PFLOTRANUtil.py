@@ -182,7 +182,8 @@ class PFLOTRANRunUtil:
             print ("Time series plot exists")
         else:
             print ("Time series plot does not exist")
-
+        copy('/kb/module/data/1.png','kb/module/work/tmp/output')
+         
         print("figpath:",figpath)
         print("current wd:",os.getcwd())
         with open(html_file, 'w') as f:
@@ -195,7 +196,7 @@ class PFLOTRANRunUtil:
 
                 <p>Visulize PFLOTRAN output</p>
                 <h2>Time series plot for batch reaction</h2>
-                <img src="/kb/module/data/1.png" alt="Time series plot of batch reaction" height="42" width="42"></img>
+                <img src="1.png" alt="Time series plot of batch reaction" height="42" width="42"></img>
                 </body>
                 </html>
             """)
