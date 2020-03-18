@@ -294,32 +294,35 @@ class PFLOTRANUploadUtil:
         self.params = params
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.dfu = DataFileUtil(self.callback_url)
-        self.data_folder = os.path.abspath('./data/')
+        self.data_folder = os.path.abspath('/kb/module/data/')
+        self.staging_folder = os.path.abspath('/kb/module/staging/')
+        self.shared_folder = params['shared_folder']
+        self.scratch_folder = os.path.join(params['shared_folder'],"scratch")
 
     def run_uploader(self):
         print('params:',self.params)
         print('PFLOTRAN_obj:',self.params['PFLOTRAN_obj'])
-        shared_folder = self.params['shared_folder']
-        print('shared_folder:',shared_folder)
-        scratch_folder = os.path.join(shared_folder,"scratch")
-        print('scratch_folder:',scratch_folder)
-        data_folder = self.data_folder
-        print('data_folder:',data_folder)
-        staging_folder = "/staging/"
-        print('staging_folder:',staging_folder)
+        # shared_folder = self.params['shared_folder']
+        # print('shared_folder:',shared_folder)
+        # scratch_folder = os.path.join(shared_folder,"scratch")
+        # print('scratch_folder:',scratch_folder)
+        # data_folder = self.data_folder
+        # print('data_folder:',data_folder)
+        # staging_folder = "/staging/"
+        # print('staging_folder:',staging_folder)
         simu_type = self.params['input_deck_type']
         print('simulation_type:',simu_type)
 
         if simu_type == 'batch':
-            data_file = os.path.join(data_folder, "batch.in")
+            data_file = os.path.join(self.data_folder, "batch.in")
             print('data_file:',data_file)
-            copyfile(data_file,scratch_folder)
+            copy(data_file,self.scratch_folder)
         else:
-            data_file = os.path.join(staging_folder,self.params['staging_custom_input_deck'])
+            data_file = os.path.join(self.staging_folder,self.params['staging_custom_input_deck'])
             print('data_file:',data_file)
-            copyfile(data_file,scratch_folder)
+            copy(data_file,self.scratch_folder)
 
-        pprint(os.listdir(data_folder))
+        pprint(os.listdir(self.data_folder))
         # print("Contents in scratch folder:",os.listdir(scratch_folder+'/'))
 
 
