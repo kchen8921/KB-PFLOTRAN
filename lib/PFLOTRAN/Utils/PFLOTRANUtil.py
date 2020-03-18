@@ -295,7 +295,7 @@ class PFLOTRANUploadUtil:
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.dfu = DataFileUtil(self.callback_url)
         self.data_folder = os.path.abspath('/kb/module/data/')
-        self.staging_folder = os.path.abspath('/kb/module/staging/')
+        self.staging_folder = os.path.abspath('/staging/')
         self.shared_folder = params['shared_folder']
         self.scratch_folder = os.path.join(params['shared_folder'],"scratch")
 
