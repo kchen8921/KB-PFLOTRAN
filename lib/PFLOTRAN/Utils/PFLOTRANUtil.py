@@ -302,6 +302,7 @@ class PFLOTRANUploadUtil:
     def run_uploader(self):
         print('params:',self.params)
         print('PFLOTRAN_obj:',self.params['PFLOTRAN_obj'])
+        print("/kb/module/:",os.listdir('/kb/module'))
         # shared_folder = self.params['shared_folder']
         # print('shared_folder:',shared_folder)
         # scratch_folder = os.path.join(shared_folder,"scratch")
@@ -357,8 +358,8 @@ class PFLOTRANUploadUtil:
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.dfu = DataFileUtil(self.callback_url)
 
-        deck_handle = self.dfu.file_to_shock({'file_path': scratch_folder, 'make_handle': True})['handle']['hid']
-        hdf_handle = self.dfu.file_to_shock({'file_path': scratch_folder, 'make_handle': True})['handle']['hid']
+        deck_handle = self.dfu.file_to_shock({'file_path': self.scratch_folder, 'make_handle': True})['handle']['hid']
+        hdf_handle = self.dfu.file_to_shock({'file_path': self.scratch_folder, 'make_handle': True})['handle']['hid']
         print("deck_handle:",deck_handle)
         print("hdf_handle:",hdf_handle)
         db = {"name": "PFLOTRAN_kb", "description": "test","pflotran_deck": deck_handle, "hdf_parameters": hdf_handle}
