@@ -166,7 +166,7 @@ CONSTRAINT initial
     CH2O(aq)    61.13d-3 T
     CO2(aq)     1.d-3    T
     N2(aq)      1.d-10   T
-    NH4+        1.d0     T
+    NH4+        5.d-1     T
     NO2-        1.d-10   T
 #    NO2-        1.d-2   T
     NO3-        18.25d-3 T

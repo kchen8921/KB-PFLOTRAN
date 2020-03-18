@@ -179,15 +179,22 @@ class PFLOTRANRunUtil:
         print("output dir:", output_directory)
         html_file = os.path.join(output_directory,'test.html')
         fig_name = 'time_series_plot.png'
+        pflotran_out_name = 'batch.out'
         fig_path = os.path.join(self.scratch_folder,fig_name)
+        pflotran_out_path = os.path.join(self.scratch_folder,pflotran_out_name)
         if os.path.isfile(fig_path):
             print ("Time series plot exists")
         else:
             print ("Time series plot does not exist")
         print("figpath:",fig_path)
+        if os.path.isfile(pflotran_out_path):
+            print ("PFLOTRAN output exists")
+        else:
+            print ("PFLOTRAN output does not exist")
+        print("figpath:",pflotran_out_path)
 
         copy(fig_path,'/kb/module/work/tmp/output')
-
+        copy(pflotran_out_path,'/kb/module/work/tmp/output')
         with open(html_file, 'w') as f:
             f.write("""
                 <!DOCTYPE html>
@@ -195,7 +202,8 @@ class PFLOTRANRunUtil:
                 <body>
 
                 <h1>PFLOTRAN-KBbase</h1>
-
+                <p>PFLOTRAN output</p>
+                <embed src="batch.out">
                 <p>Visulize PFLOTRAN output</p>
                 <img src="{}" alt="Time series plot" height="360" width="480"></img>
                 </body>
