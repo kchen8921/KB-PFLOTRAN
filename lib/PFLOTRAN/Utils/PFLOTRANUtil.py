@@ -195,10 +195,10 @@ class PFLOTRANRunUtil:
 
                 <p>Visulize PFLOTRAN output</p>
                 <h2>Time series plot for batch reaction</h2>
-                <img src="./data/1.png" alt="Time series plot of batch reaction" height="42" width="42"></img>
+                <img src="/kb/module/data/1.png" alt="Time series plot of batch reaction" height="42" width="42"></img>
                 </body>
                 </html>
-            """.format(figpath))
+            """)
 
         with open(html_file, 'r') as f:
             print("html_file:",f.readlines())
