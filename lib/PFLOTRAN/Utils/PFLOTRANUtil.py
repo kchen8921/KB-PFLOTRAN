@@ -182,8 +182,8 @@ class PFLOTRANRunUtil:
             print ("Time series plot exists")
         else:
             print ("Time series plot does not exist")
-        copy('/kb/module/data/1.png','kb/module/work/tmp/output')
-         
+        copy('/kb/module/data/1.png','/kb/module/work/tmp/output')
+
         print("figpath:",figpath)
         print("current wd:",os.getcwd())
         with open(html_file, 'w') as f:
