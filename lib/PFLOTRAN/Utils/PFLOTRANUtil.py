@@ -203,7 +203,7 @@ class PFLOTRANRunUtil:
 
                 <h1>PFLOTRAN-KBbase</h1>
                 <p>PFLOTRAN output</p>
-                <embed src="batch.out">
+                <embed src="batch.out" width="480" height="960">
                 <p>Visulize PFLOTRAN output</p>
                 <img src="{}" alt="Time series plot" height="360" width="480"></img>
                 </body>
