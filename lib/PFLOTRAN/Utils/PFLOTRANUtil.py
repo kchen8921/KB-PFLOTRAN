@@ -303,6 +303,12 @@ class PFLOTRANUploadUtil:
         print('params:',self.params)
         print('PFLOTRAN_obj:',self.params['PFLOTRAN_obj'])
         print("/kb/module/:",os.listdir('/kb/module'))
+        try:
+            os.mkdir(self.staging_folder)
+        except OSError:
+            print ("Creation of the directory %s failed" % self.staging_folder)
+        else:
+            print ("Successfully created the directory %s " % self.staging_folder)
         # shared_folder = self.params['shared_folder']
         # print('shared_folder:',shared_folder)
         # scratch_folder = os.path.join(shared_folder,"scratch")
