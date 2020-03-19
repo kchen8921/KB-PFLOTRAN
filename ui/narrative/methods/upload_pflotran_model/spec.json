@@ -27,19 +27,19 @@
                "KBaseFBA.FBAModel"
             ]
          }
-      },{
-         "id" : "input_Media_model",
-         "default_values" : [""],
-         "advanced" : false,
-         "field_type" : "text",
-         "text_options" : {
-            "valid_ws_types" : [
-               "KBaseBiochem.Media"
-            ]
-         },
+      },
+      {
+         "id" : "input_model_parameters",
          "optional" : false,
-         "allow_multiple" : false
-      },{
+         "advanced" : false,
+         "allow_multiple" : false,
+         "default_values" : [ "" ],
+         "field_type" : "dynamic_dropdown",
+         "dynamic_dropdown_options" : {
+           "data_source": "ftp_staging"
+         }
+      },
+      {
          "id" : "input_deck_type",
          "default_values" : [ "batch"],
          "advanced" : false,
@@ -62,7 +62,56 @@
          },
          "optional" : false,
          "allow_multiple" : false
-      },{
+      },
+      {
+         "id" : "simulation_time",
+         "optional" : false,
+         "advanced" : false,
+         "allow_multiple" : false,
+         "default_values" : [ "1" ],
+         "field_type" : "text"
+       },      
+       {
+         "id" : "output_period",
+         "optional" : false,
+         "advanced" : false,
+         "allow_multiple" : false,
+         "default_values" : [ "1" ],
+         "field_type" : "text"
+       },
+       {
+         "id" : "temperature",
+         "optional" : false,
+         "advanced" : false,
+         "allow_multiple" : false,
+         "default_values" : [ "25" ],
+         "field_type" : "text"
+       },  
+       {
+         "id" : "length",
+         "optional" : false,
+         "advanced" : true,
+         "allow_multiple" : false,
+         "default_values" : [ "1" ],
+         "field_type" : "text"
+       },         
+       {
+         "id" : "grid_number",
+         "optional" : false,
+         "advanced" : true,
+         "allow_multiple" : false,
+         "default_values" : [ "100" ],
+         "field_type" : "text"
+       },        
+       {
+         "id" : "dispersivity",
+         "optional" : false,
+         "advanced" : true,
+         "allow_multiple" : false,
+         "default_values" : [ "0.1" ],
+         "field_type" : "text"
+       },         
+      {
          "id" : "staging_custom_input_deck",
          "optional" : true,
          "advanced" : false,
@@ -72,17 +121,8 @@
          "dynamic_dropdown_options" : {
            "data_source": "ftp_staging"
          }
-      },{
-         "id" : "staging_custom_hdf5_parameters",
-         "default_values" : [ ""],
-         "advanced" : false,
-         "field_type" : "dynamic_dropdown",
-         "dynamic_dropdown_options": {
-            "data_source": "ftp_staging"
-         },
-         "optional" : true,
-         "allow_multiple" : false
-      },{
+      },
+      {
          "id" : "PFLOTRAN_obj",
          "default_values" : [ "pflotran_obj"],
          "advanced" : false,
@@ -110,21 +150,40 @@
                "target_type_transform": "resolved-ref"
             },
             {
-               "input_parameter" : "input_Media_model",
-               "target_property" : "input_Media_model",
-               "target_type_transform": "resolved-ref"
-            },
+               "input_parameter" : "input_model_parameters",
+               "target_property" : "input_model_parameters"
+            },           
             {
                "input_parameter" : "input_deck_type",
                "target_property" : "input_deck_type"
             },
             {
+               "input_parameter" : "simulation_time",
+               "target_property" : "simulation_time"
+            },        
+            {
+               "input_parameter" : "output_period",
+               "target_property" : "output_period"
+            },      
+            {
+               "input_parameter" : "temperature",
+               "target_property" : "temperature"
+            },  
+            {
+               "input_parameter" : "length",
+               "target_property" : "length"
+            },   
+            {
+               "input_parameter" : "grid_number",
+               "target_property" : "grid_number"
+            },     
+            {
+               "input_parameter" : "dispersivity",
+               "target_property" : "dispersivity"
+            },                 
+            {
                "input_parameter" : "staging_custom_input_deck",
                "target_property" : "staging_custom_input_deck"
-            },
-            {
-               "input_parameter" : "staging_custom_hdf5_parameters",
-               "target_property" : "staging_custom_hdf5_parameters"
             },
             {
                "input_parameter" : "PFLOTRAN_obj",

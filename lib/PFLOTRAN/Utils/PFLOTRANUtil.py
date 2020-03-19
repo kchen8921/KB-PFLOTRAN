@@ -302,6 +302,7 @@ class PFLOTRANUploadUtil:
     def run_uploader(self):
         print('params:',self.params)
         print('PFLOTRAN_obj:',self.params['PFLOTRAN_obj'])
+        print("top dir /:",os.listdir('/'))
         print("/kb/module/:",os.listdir('/kb/module'))
         try:
             os.mkdir(self.staging_folder)

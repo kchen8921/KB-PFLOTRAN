@@ -47,27 +47,53 @@ parameters :
         short-hint : |
             Select FBA model with stochiometry 
 
-    input_Media_model :
+    input_model_parameters :
         ui-name : |
-            Select Media model 
+            Select csv file for model parameters  
         short-hint : |
-            Select Media model with stochiometry 
+            Select csv file that contain species specific parameters 
 
     input_deck_type :
         ui-name : |
             Select type of input deck
         short-hint : |
-            Select type of input deck (Col/Batch/Custom)
-    
-    staging_custom_input_deck :
-        ui-name : Select PFLOTRAN input deck for custom reaction (Optional)
-        short-hint : Select required PFLOTRAN input deck for custom reaction from staging
-        
-    staging_custom_hdf5_parameters :
+            Select type of input deck (Batch/Column)
+
+    simulation_time :
         ui-name : |
-            Select hdf5 file for PFLOTRAN input deck for custom reaction (Optional)
+            Enter total simulation time (hours)
         short-hint : |
-            Select hdf5 file for PFLOTRAN input deck for custom reaction from your staging area
+            Enter total simulation time (hours)
+
+    output_period :
+        ui-name : |
+            Enter time period for output (hours)
+        short-hint : |
+            Enter time period for output (hours)
+
+    temperature :
+        ui-name : |
+            Enter temperature (deg C)
+        short-hint : |
+            Enter temperature (deg C)          
+
+    length :
+        ui-name : |
+            Enter column length (cm)
+        short-hint : |
+            Enter column length (cm)
+
+    grid_number :
+        ui-name : |
+            Enter number of grids (cm)
+        short-hint : |
+            Enter number of grids (cm)
+
+    dispersivity :
+        ui-name : |
+            Enter dispersivity (cm)
+        short-hint : |
+            Enter dispersivity (cm)
     
     PFLOTRAN_obj :
         ui-name : |
