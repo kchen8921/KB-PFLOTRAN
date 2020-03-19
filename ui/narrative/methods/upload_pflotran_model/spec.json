@@ -112,17 +112,6 @@
          "field_type" : "text"
        },         
       {
-         "id" : "staging_custom_input_deck",
-         "optional" : true,
-         "advanced" : false,
-         "allow_multiple" : false,
-         "default_values" : [ "" ],
-         "field_type" : "dynamic_dropdown",
-         "dynamic_dropdown_options" : {
-           "data_source": "ftp_staging"
-         }
-      },
-      {
          "id" : "PFLOTRAN_obj",
          "default_values" : [ "pflotran_obj"],
          "advanced" : false,
@@ -181,10 +170,6 @@
                "input_parameter" : "dispersivity",
                "target_property" : "dispersivity"
             },                 
-            {
-               "input_parameter" : "staging_custom_input_deck",
-               "target_property" : "staging_custom_input_deck"
-            },
             {
                "input_parameter" : "PFLOTRAN_obj",
                "target_property" : "PFLOTRAN_obj"

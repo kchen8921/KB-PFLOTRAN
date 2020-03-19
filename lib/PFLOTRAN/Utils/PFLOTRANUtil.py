@@ -326,7 +326,10 @@ class PFLOTRANUploadUtil:
             print('data_file:',data_file)
             copy(data_file,self.scratch_folder)
         else:
-            data_file = os.path.join(self.staging_folder,self.params['staging_custom_input_deck'])
+            # data_file = os.path.join(self.staging_folder,self.params['staging_custom_input_deck'])
+            # print('data_file:',data_file)
+            # copy(data_file,self.scratch_folder)
+            data_file = os.path.join(self.data_folder, "column.in")
             print('data_file:',data_file)
             copy(data_file,self.scratch_folder)
 
